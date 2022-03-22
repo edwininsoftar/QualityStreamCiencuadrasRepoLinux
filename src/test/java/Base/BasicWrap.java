@@ -18,9 +18,9 @@ public class BasicWrap {
 			this.driver = driver;
 		}
 		
-		// CREACIÓN DE INSTACIA DEL NAVEGADOR CHROME
+		// CREACIï¿½N DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
-			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			return driver;

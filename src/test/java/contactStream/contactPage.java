@@ -35,17 +35,20 @@ public class contactPage extends BasicWrap{
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";
 	String cellPhone = "3123454345";
-	String numText = driver.findElement(locator_price).getText();
-	String numText2 = driver.findElement(locator_builtArea).getText();
+	
 
 	public contactPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
+	
 	public void contactBuyNew() throws InterruptedException {
 		try {
 			Thread.sleep(6000);
 			click(locator_buyNew);
+			String numText = driver.findElement(locator_price).getText();
+		    String numText2 = driver.findElement(locator_builtArea).getText();
+			
 			if (numText.equals("$163.000.000") && numText2.equals("60 m")) {
 				click(locator_contact);
 				Thread.sleep(5000);
@@ -75,7 +78,9 @@ public class contactPage extends BasicWrap{
 		} finally {
 			System.out.println("Fin validacionesdel contactar");
 		}
-
+		
+	
+	
 	}
 
 

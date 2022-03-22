@@ -1,22 +1,14 @@
 package contactStream;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
-public class ContactPage extends BasicWrap {
-
-	public ContactPage(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
-
-
-
+public class contactPage extends BasicWrap{
+	
 	By locator_buyNew = By.linkText("Compra nuevo");
 	By locator_contact = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
 	By locator_title = By.xpath("//*[@id=\"contactForm\"]/div[1]/h3");
@@ -46,8 +38,10 @@ public class ContactPage extends BasicWrap {
 	String numText = driver.findElement(locator_price).getText();
 	String numText2 = driver.findElement(locator_builtArea).getText();
 
-	
-
+	public contactPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
 	public void contactBuyNew() throws InterruptedException {
 		try {
 			Thread.sleep(6000);
@@ -83,5 +77,6 @@ public class ContactPage extends BasicWrap {
 		}
 
 	}
+
 
 }

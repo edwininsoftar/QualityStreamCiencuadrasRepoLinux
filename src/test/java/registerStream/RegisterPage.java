@@ -3,8 +3,10 @@ package registerStream;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,14 +28,15 @@ public class RegisterPage extends BasicWrap {
 	By locator_identification = By.cssSelector("input[formcontrolname=\"identification\"]");
 	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
 	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
+	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[4]/form/button/span");
+	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[3]/form/button/span");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
-	By locator_captcha = By.cssSelector("div.rc-anchor-content");
+	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 
 	
-	String roll = "Constructora"; // Persona, Agente, Inmobiliaria, Constructora
-	String typeDocument = "CC";// NIT, CC
+	String roll = "Agente"; // Persona, Agente, Inmobiliaria, Constructora
+	String typeDocument = "NIT";// NIT, CC
 	String name = "Juan Fernando Perez";// Nombre o razon social
 	String email = "pruebaciencuadras1@yopmail.com";
 	String password = "@Password13";// contraseña y confirmación de contraseña
@@ -47,8 +50,6 @@ public class RegisterPage extends BasicWrap {
 
 	public void registerRoll() throws InterruptedException {
 		try {
-			/*WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			ewait.until(ExpectedConditions.elementToBeClickable(locator_into));*/
 			Thread.sleep(6000);
 			click(locator_into);
 			click(locator_register);
@@ -57,18 +58,26 @@ public class RegisterPage extends BasicWrap {
 					click(locator_persona);
 				} else {
 					click(locator_agente);
+					if(typeDocument.equals("CC")) {
+						click(locator_typeDocument);
+						click(locator_typeDocumentCC);
+					}
 					if(typeDocument.equals("NIT")) {
 						click(locator_typeDocument);
 						click(locator_typeDocumentNit);
 					}
+					type(identification,locator_identification);
 				}
 				if (typeDocument.equals("NIT")) {
 					type(DV, locator_Dv);
 				}
-				type(identification,locator_identification);
-				type(name, locator_name);
+				type(name, locator_name);	
 				type(email, locator_email);
+				WebElement emailTab = driver.findElement(locator_email);
+				emailTab.sendKeys(Keys.TAB);
 				type(password, locator_password);
+				WebElement passwordTab = driver.findElement(locator_password);
+				passwordTab.sendKeys(Keys.TAB);
 				type(password, locator_confirmPass);
 			}
 			if (roll.equals("Inmobiliaria") || roll.equals("Constructora")) {
@@ -81,8 +90,12 @@ public class RegisterPage extends BasicWrap {
 				type(identification, locator_identification);
 				type(DV, locator_Dv);
 				type(email, locator_email);
+				WebElement emailTab = driver.findElement(locator_email);
+				emailTab.sendKeys(Keys.TAB);	
 				type(password, locator_password);
-				type(password, locator_confirmPass);
+				WebElement passwordTab = driver.findElement(locator_password);
+				passwordTab.sendKeys(Keys.TAB);
+				type(password,locator_confirmPass);
 			}
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));

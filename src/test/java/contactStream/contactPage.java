@@ -9,7 +9,7 @@ import io.netty.handler.timeout.TimeoutException;
 
 public class contactPage extends BasicWrap{
 	
-	By locator_buyNew = By.linkText("Compra nuevo");
+	By locator_buyNew = By.linkText("COMPRA NUEVO");
 	By locator_contact = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
 	By locator_title = By.xpath("//*[@id=\"contactForm\"]/div[1]/h3");
 	By locator_name = By.id("name");
@@ -69,9 +69,7 @@ public class contactPage extends BasicWrap{
 			} else {
 				System.out.println("no se envio el contactar");
 			}
-		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
-		} catch (TimeoutException e) {
+		}  catch (TimeoutException e) {
 			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);

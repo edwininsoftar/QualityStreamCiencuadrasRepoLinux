@@ -16,7 +16,7 @@ import io.netty.handler.timeout.TimeoutException;
 public class RegisterPage extends BasicWrap {
 
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_register = By.linkText("Regístrate");
+	By locator_register = By.linkText("RegÃ­strate");
 	By locator_persona = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[2]");
 	By locator_agente = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[2]");
 	By locator_inmobiliaria = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[2]");
@@ -31,17 +31,17 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
 	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[3]/form/button/span");
-	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
+	By locator_reCapchat = By
+			.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 
-	
-	String roll = "Agente"; // Persona, Agente, Inmobiliaria, Constructora
+	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora
 	String typeDocument = "NIT";// NIT, CC
 	String name = "Juan Fernando Perez";// Nombre o razon social
 	String email = "pruebaciencuadras1@yopmail.com";
-	String password = "@Password13";// contraseña y confirmación de contraseña
-	String identification = "1057593777";// Numero de identificación o Nit
-	String DV = "8";// digito de verificación obligatorio si el tipo de documento es NIT
+	String password = "@Password13";// contraseÃ±a y confirmaciÃ³n de contraseï¿½a
+	String identification = "1057593777";// Numero de identificaciï¿½n o Nit
+	String DV = "8";// digito de verificaciÃ³n obligatorio si el tipo de documento es NIT
 
 	public RegisterPage(WebDriver driver) {
 		super(driver);
@@ -58,20 +58,20 @@ public class RegisterPage extends BasicWrap {
 					click(locator_persona);
 				} else {
 					click(locator_agente);
-					if(typeDocument.equals("CC")) {
+					if (typeDocument.equals("CC")) {
 						click(locator_typeDocument);
 						click(locator_typeDocumentCC);
 					}
-					if(typeDocument.equals("NIT")) {
+					if (typeDocument.equals("NIT")) {
 						click(locator_typeDocument);
 						click(locator_typeDocumentNit);
 					}
-					type(identification,locator_identification);
+					type(identification, locator_identification);
 				}
 				if (typeDocument.equals("NIT")) {
 					type(DV, locator_Dv);
 				}
-				type(name, locator_name);	
+				type(name, locator_name);
 				type(email, locator_email);
 				WebElement emailTab = driver.findElement(locator_email);
 				emailTab.sendKeys(Keys.TAB);
@@ -91,11 +91,11 @@ public class RegisterPage extends BasicWrap {
 				type(DV, locator_Dv);
 				type(email, locator_email);
 				WebElement emailTab = driver.findElement(locator_email);
-				emailTab.sendKeys(Keys.TAB);	
+				emailTab.sendKeys(Keys.TAB);
 				type(password, locator_password);
 				WebElement passwordTab = driver.findElement(locator_password);
 				passwordTab.sendKeys(Keys.TAB);
-				type(password,locator_confirmPass);
+				type(password, locator_confirmPass);
 			}
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));

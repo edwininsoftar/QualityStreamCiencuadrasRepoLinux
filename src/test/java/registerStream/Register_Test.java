@@ -9,7 +9,7 @@ public class Register_Test {
 	
 	private WebDriver driver;
 	RegisterPage registerPage;
-
+ 
 	@Before
 	public void setUp() throws Exception {
 		registerPage = new RegisterPage(driver);

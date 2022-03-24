@@ -1,5 +1,6 @@
 package contactStream;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -46,10 +47,14 @@ public class contactPage extends BasicWrap{
 		try {
 			Thread.sleep(6000);
 			click(locator_buyNew);
+			
 			String numText = driver.findElement(locator_price).getText();
 		    String numText2 = driver.findElement(locator_builtArea).getText();
+		  
 			
-			if (numText.equals("$163.000.000") && numText2.equals("60 m")) {
+			if (numText.equals("$163.000.000 ") && numText2.substring(0).startsWith("6")){
+				
+			
 				click(locator_contact);
 				Thread.sleep(5000);
 
@@ -69,12 +74,14 @@ public class contactPage extends BasicWrap{
 			} else {
 				System.out.println("no se envio el contactar");
 			}
-		}  catch (TimeoutException e) {
+		} catch (NoSuchElementException e) {
+			System.out.println("No se encuentra el elemento: " + e);
+		} catch (TimeoutException e) {
 			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);
 		} finally {
-			System.out.println("Fin validacionesdel contactar");
+			System.out.println("Fin validaciones del contactar");
 		}
 		
 	

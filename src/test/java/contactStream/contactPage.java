@@ -19,16 +19,13 @@ public class contactPage extends BasicWrap{
 			.xpath("//*[@id=\"contactForm\"]/div[2]/div[4]/div[1]/div/mat-form-field/div/div[1]/div[3]");
 	By locator_indicativeColombia = By.xpath("//*[@id=\"mat-option-18\"]/span/span[2]");
 	By locator_cellPhone = By.id("cellPhone");
-	By locator_schedule = By.cssSelector(
-			"div[class=\"mat-form-field-infix\"]>mat-select[class=\"mat-select ng-tns-c29-21 mat-select-empty ng-pristine ng-valid ng-star-inserted ng-touched\"]");
+	By locator_schedule = By.id("mat-select-3");
 	By locator_monadayFridayam = By.id("mat-option-32");
-	By locator_livingPlace = By.cssSelector(
-			"div[class=\"mat-form-field-infix\"]>mat-select[class=\"mat-select ng-tns-c29-184 mat-select-empty ng-pristine ng-valid ng-star-inserted ng-touched\"]");
+	By locator_livingPlace = By.id("mat-select-4");
 	By locator_toLive = By.id("mat-option-37");
-	By locator_toBuy = By.cssSelector(
-			"div[class=\"mat-form-field-infix\"]>mat-select[class=\"mat-select ng-tns-c29-186 mat-select-empty ng-pristine ng-valid ng-star-inserted ng-touched\"]");
+	By locator_toBuy = By.id("mat-select-5");
 	By locator_inNineMonths = By.id("mat-option-40");
-	By locator_captcha = By.cssSelector("div.rc-anchor-content");
+	By locator_captcha = By.cssSelector("div[class=\"rc-anchor-content\"]>div[class=\"rc-inline-block\"]>div[class=\"rc-anchor-center-container\"]");
 	By locator_price = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[1]/h3");
 	By locator_builtArea = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[2]/ul/li[3]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
@@ -67,6 +64,7 @@ public class contactPage extends BasicWrap{
 				click(locator_schedule);
 				click(locator_monadayFridayam);
 				click(locator_livingPlace);
+				click(locator_toLive);
 				click(locator_toBuy);
 				click(locator_inNineMonths);
 				click(locator_captcha);

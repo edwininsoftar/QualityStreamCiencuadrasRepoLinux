@@ -1,9 +1,14 @@
 package contactStream;
 
 import org.openqa.selenium.JavascriptExecutor;
+
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
@@ -25,7 +30,9 @@ public class contactPage extends BasicWrap{
 	By locator_toLive = By.id("mat-option-37");
 	By locator_toBuy = By.id("mat-select-5");
 	By locator_inNineMonths = By.id("mat-option-40");
-	By locator_captcha = By.cssSelector("div[class=\"rc-anchor-content\"]>div[class=\"rc-inline-block\"]>div[class=\"rc-anchor-center-container\"]");
+	By locator_reCapchat = By.xpath
+			("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
+	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 	By locator_price = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[1]/h3");
 	By locator_builtArea = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[2]/ul/li[3]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
@@ -60,14 +67,16 @@ public class contactPage extends BasicWrap{
 				type(cellPhone, locator_cellPhone);
 				click(locator_indicative);
 				click(locator_indicativeColombia);
-				type(cellPhone, locator_cellPhone);
 				click(locator_schedule);
 				click(locator_monadayFridayam);
 				click(locator_livingPlace);
 				click(locator_toLive);
 				click(locator_toBuy);
 				click(locator_inNineMonths);
-				click(locator_captcha);
+				WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
+				ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
+				ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
+				type(cellPhone, locator_cellPhone);
 				click(locator_buttonSend);
 			} else {
 				System.out.println("no se envio el contactar");

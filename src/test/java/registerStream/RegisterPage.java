@@ -31,8 +31,7 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
 	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[3]/form/button/span");
-	By locator_reCapchat = By
-			.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
+	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 
 	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora

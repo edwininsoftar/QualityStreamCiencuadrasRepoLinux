@@ -27,20 +27,19 @@ public class contactPage extends BasicWrap{
 	By locator_indicativeColombia = By.xpath("//*[@id=\"mat-option-18\"]/span/span[2]");
 	By locator_cellPhone = By.id("cellPhone");
 	By locator_schedule = By.id("mat-select-3");
-	By locator_monadayFridayam = By.id("mat-option-32");
-	By locator_monadayFridaypm = By.id("mat-option-33");
+	By locator_mondayFridayam = By.id("mat-option-32");
+	By locator_mondayFridaypm = By.id("mat-option-33");
 	By locator_weekendam = By.id("mat-option-34");
 	By locator_weekendpm = By.id("mat-option-35");
 	By locator_livingPlace = By.id("mat-select-4");
 	By locator_toInvest = By.id("mat-option-36");
 	By locator_toLive = By.id("mat-option-37");
-	By locator_toBuy = By.id("mat-select-5");
+	By locator_planToBuy = By.id("mat-select-5");
 	By locator_threeMonths = By.id("mat-option-38");
 	By locator_sixMonths = By.id("mat-option-39");
 	By locator_nineMonths = By.id("mat-option-40");
-	By locator_reCapchat = By.xpath
-			("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
-	By locator_captcha = By.xpath("//*[@id=\"recaptcha-anchor\"]");
+	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
+	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 	By locator_price = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[1]/h3");
 	By locator_builtArea = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[2]/ul/li[3]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
@@ -50,9 +49,9 @@ public class contactPage extends BasicWrap{
 	String cellPhone = "3123454345";
 	String price_property = "$163.000.000 ";
 	String area_built = "60 m";
-	String customerSupport = "monadayFridayam"; //elige un horario para contactarme monadayFridayam,monadayFridaypm,weekendam,weekendpm 
-	String livinPlace = "toLive"; //para que buscas vivienda toInvest, toLive
-    String planToBuy = "nineMonths"; // cuando planeas comprar nineMonths,sixMonths,threeMonths
+	String customerSupport = "weekendpm"; //elige un horario para contactarme mondayFridayam,mondayFridaypm,weekendam,weekendpm 
+	String livinPlace = "toInvest"; //para que buscas vivienda toInvest, toLive
+    String planToBuy = "threeMonths"; // cuando planeas comprar threeMonths, sixMonths,nineMonths,
 	public contactPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -77,16 +76,36 @@ public class contactPage extends BasicWrap{
 				type(email, locator_email);
 				type(cellPhone, locator_cellPhone);
 				click(locator_schedule);
-				click(locator_monadayFridayam);
+				if(customerSupport.equals("mondayFridayam")) {
+					click(locator_mondayFridayam);
+				}if(customerSupport.equals("mondayFridaypm")) {
+					click(locator_mondayFridaypm);
+				}if(customerSupport.equals("weekendam")) {
+					click(locator_weekendam);
+				}if(customerSupport.equals("weekendpm")) {
+					click(locator_weekendpm);
+				}
 				click(locator_livingPlace);
-				click(locator_toLive);
-				click(locator_toBuy);
-				click(locator_nineMonths);
+				if(livinPlace.equals("toInvest")) {
+					click(locator_toInvest);
+				}
+				if(livinPlace.equals("toLive")) {
+					click(locator_toLive);
+				}
+				click(locator_planToBuy);
+				if(planToBuy.equals("threeMonths")) {
+				click(locator_threeMonths);
+				}if(planToBuy.equals("sixMonths")) {
+					click(locator_sixMonths);
+				}if(planToBuy.equals("nineMonths")) {
+					click(locator_nineMonths);
+				}
+				
 				WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 				ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 				ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
-				WebElement cell = driver.findElement(locator_cellPhone);
-				cell.sendKeys(Keys.ESCAPE);
+				
+				
 				click(locator_buttonSend);
 			
 				

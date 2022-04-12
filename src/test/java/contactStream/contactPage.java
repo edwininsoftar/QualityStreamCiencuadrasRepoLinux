@@ -18,8 +18,16 @@ import io.netty.handler.timeout.TimeoutException;
 public class contactPage extends BasicWrap{
 	
 	By locator_buyNew = By.linkText("COMPRA NUEVO");
-	By locator_contact = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
-	By locator_title = By.xpath("//*[@id=\"contactForm\"]/div[1]/h3");
+	By locator_builder = By.id("lname");
+	By locator_constructoraTuHogar = By.cssSelector("mat-option[ng-reflect-value=\"Constructora tu hogar\"]");
+	
+	By locator_contact1 = By.xpath("//*[@id=\"all-content\"]/app-card[1]/div/div/div[2]/div/button[3]");
+	By locator_contact2 = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
+	By locator_contact3 = By.xpath("//*[@id=\"all-content\"]/app-card[3]/div/div/div[2]/div/button[3]");
+	By locator_contact4 = By.xpath("//*[@id=\"all-content\"]/app-card[4]/div/div/div[2]/div/button[3]");
+	
+	
+	
 	By locator_name = By.id("name");
 	By locator_email = By.id("email");
 	By locator_indicative = By
@@ -44,6 +52,7 @@ public class contactPage extends BasicWrap{
 	By locator_builtArea = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[2]/ul/li[3]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
 
+	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";
 	String cellPhone = "3123454345";
@@ -51,7 +60,8 @@ public class contactPage extends BasicWrap{
 	String area_built = "60 m";
 	String customerSupport = "weekendpm"; //elige un horario para contactarme mondayFridayam,mondayFridaypm,weekendam,weekendpm 
 	String livinPlace = "toInvest"; //para que buscas vivienda toInvest, toLive
-    String planToBuy = "threeMonths"; // cuando planeas comprar threeMonths, sixMonths,nineMonths,
+    String planToBuy = "3 meses"; // cuando planeas comprar 3 meses, 6 meses, 9 meses,
+    
 	public contactPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -62,16 +72,20 @@ public class contactPage extends BasicWrap{
 			Thread.sleep(6000);
 			click(locator_buyNew);
 			
-			String numText = driver.findElement(locator_price).getText();
-		    String numText2 = driver.findElement(locator_builtArea).getText();
-		  
+			if(isDisplayed(locator_builder)) {
+			WebElement text = driver.findElement(locator_builder);
+			type("Constructora tu hogar", locator_builder);
+			click(locator_constructoraTuHogar);
 			
-			if (numText.equals(price_property) && numText2.substring(0).startsWith(area_built)){
-				
-				
-				click(locator_contact);
-				Thread.sleep(5000);
-				
+			if (Contact.equals("Contactar1")){
+				click(locator_contact1);
+			}if (Contact.equals("Contactar2")){
+				click(locator_contact2);
+			}if (Contact.equals("Contactar3")){
+				click(locator_contact3);
+			}if (Contact.equals("Contactar4")){
+				click(locator_contact4);
+			}
 				type(name, locator_name);
 				type(email, locator_email);
 				type(cellPhone, locator_cellPhone);
@@ -93,11 +107,11 @@ public class contactPage extends BasicWrap{
 					click(locator_toLive);
 				}
 				click(locator_planToBuy);
-				if(planToBuy.equals("threeMonths")) {
+				if(planToBuy.equals("3 meses")) {
 				click(locator_threeMonths);
-				}if(planToBuy.equals("sixMonths")) {
+				}if(planToBuy.equals("6 meses")) {
 					click(locator_sixMonths);
-				}if(planToBuy.equals("nineMonths")) {
+				}if(planToBuy.equals("9 meses")) {
 					click(locator_nineMonths);
 				}
 				

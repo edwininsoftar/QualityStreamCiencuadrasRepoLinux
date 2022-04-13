@@ -27,6 +27,7 @@ public class contact_test {
 	@Test
 	public void test() throws InterruptedException {
 		ContactPage.contactBuyNew();
+		ContactPage.formContact();
 		
 	}
 

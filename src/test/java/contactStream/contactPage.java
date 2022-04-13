@@ -23,33 +23,30 @@ public class contactPage extends BasicWrap{
 	By locator_constructoraTuHogar = By.id("mat-option[ng-reflect-value=\"Constructora tu hogar\"]");
 	By locator_applyButton = By.id("btn-filter-desktop");
 	By locator_cancelar = By.cssSelector("button[class=\"btn cancel\"]");
-	
 	By locator_contact1 = By.xpath("//*[@id=\"all-content\"]/app-card[1]/div/div/div[2]/div/button[3]");
 	By locator_contact2 = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
 	By locator_contact3 = By.xpath("//*[@id=\"all-content\"]/app-card[3]/div/div/div[2]/div/button[3]");
 	By locator_contact4 = By.xpath("//*[@id=\"all-content\"]/app-card[4]/div/div/div[2]/div/button[3]");
-	By locator_title = By.xpath("//*[@id=\"contactForm\"]/div[1]/h3");
 	By locator_name = By.id("name");
 	By locator_email = By.id("email");
 	By locator_cellPhone = By.id("cellPhone");
-	By locator_schedule = By.id("mat-select-3");
-	By locator_mondayFridayam = By.id("mat-option-32");
-	By locator_mondayFridaypm = By.id("mat-option-33");
-	By locator_weekendam = By.id("mat-option-34");
-	By locator_weekendpm = By.id("mat-option-35");
-	By locator_livingPlace = By.id("mat-select-4");
-	By locator_toInvest = By.id("mat-option-36");
-	By locator_toLive = By.id("mat-option-37");
-	By locator_planToBuy = By.id("mat-select-5");
-	By locator_threeMonths = By.id("mat-option-38");
-	By locator_sixMonths = By.id("mat-option-39");
-	By locator_nineMonths = By.id("mat-option-40");
+	By locator_schedule = By.cssSelector("mat-select[formcontrolname=\"contactSchedule\"]");
+	By locator_mondayFridayam = By.cssSelector("mat-option[ng-reflect-value=\"Lunes - Viernes / am\"]");
+	By locator_mondayFridaypm = By.cssSelector("mat-option[ng-reflect-value=\"Lunes - Viernes / pm\"]");
+	By locator_weekendam = By.cssSelector("mat-option[ng-reflect-value=\"Fin de semana / am\"]");
+	By locator_weekendpm = By.cssSelector("mat-option[ng-reflect-value=\"Fin de semana / pm\"]");
+	By locator_livingPlace = By.cssSelector("mat-select[formcontrolname=\"reasonSeekHousing\"]");
+	By locator_toInvest = By.cssSelector("mat-option[ng-reflect-value=\"Para Invertir\"]");
+	By locator_toLive = By.cssSelector("mat-option[ng-reflect-value=\"Para Vivir\"]");
+	By locator_planToBuy = By.cssSelector("mat-select[formcontrolname=\"expectedTimePurchase\"]");
+	By locator_threeMonths = By.cssSelector("mat-option[ng-reflect-value=\"En 3 meses\"]");
+	By locator_sixMonths = By.cssSelector("mat-option[ng-reflect-value=\\\"En 6 meses\\\"]\"");
+	By locator_nineMonths = By.cssSelector("mat-option[ng-reflect-value=\\\"En 9 meses\\\"]\"");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
-	By locator_price = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[1]/div[1]/h3");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
 	By locator_x = By.xpath("//*[@id=\"detail-contact-sales\"]/button/span/span");
-	By locator_enterButton = By.xpath("//*[@id=\"navbarText\"]/ul[2]/div/a");
+	By locator_enterButton = By.linkText("INGRESAR");
 	By locator_user = By.id("mat-input-0");
 	By locator_password = By.id("mat-input-1");
 	By locator_logIn = By.xpath("/html/body/app-root/div/app-login/div/lib-cc-login/div/div/div[3]/form/button/span");
@@ -57,12 +54,11 @@ public class contactPage extends BasicWrap{
 	By locator_myReports = By.linkText("Mis Reportes");
 	
 	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
+	String Constructora = "Constructora tu hogar";//nombre de la constructora que va a buscar
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";
 	String cellPhone = "3123454345";
-	String price_property = "$163.000.000 ";
-	String area_built = "60 m";
-	String customerSupport = "Fin de semana pm"; //elige un horario para contactarme lunes a viernes am,lunes a viernes pm,Fin de semana am,Fin de semana pm 
+	String customerSupport = "lunes a viernes am"; //elige un horario para contactarme lunes a viernes am,lunes a viernes pm,Fin de semana am,Fin de semana pm 
 	String livinPlace = "Para invertir"; //para que buscas vivienda Para invertir, Para vivir
     String planToBuy = "3 meses"; // cuando planeas comprar 3 meses, 6 meses, 9 meses,
     String user = "qa.constructorahogar21@yopmail.com";
@@ -75,17 +71,19 @@ public class contactPage extends BasicWrap{
 	
 	public void contactBuyNew() throws InterruptedException {
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 			click(locator_buyNew);
 			
 			if(isDisplayed(locator_builder)) {
 			WebElement text = driver.findElement(locator_builder);
-			type("Constructora tu hogar", locator_builder);
-		    Thread.sleep(6000);
-			//click(locator_constructoraTuHogar);
+			type(Constructora, locator_builder);
+			Thread.sleep(8000);
+			text.sendKeys(Keys.DOWN);
+			text.sendKeys(Keys.ENTER);
 			click(locator_applyButton);
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 			click(locator_cancelar);
+			Thread.sleep(8000);
 			if (Contact.equals("Contactar1")){
 				click(locator_contact1);
 			}if (Contact.equals("Contactar2")){
@@ -112,11 +110,10 @@ public class contactPage extends BasicWrap{
 	
 	}
 	
-	public void formContact() {
+	public void formContact() throws InterruptedException{
 		
 		try {
-		
-		if(isDisplayed(locator_title)) {
+			Thread.sleep(8000);
 			type(name, locator_name);
 			type(email, locator_email);
 			type(cellPhone, locator_cellPhone);
@@ -149,13 +146,12 @@ public class contactPage extends BasicWrap{
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
-			
+			driver.switchTo().defaultContent();
 			
 			click(locator_buttonSend);
+			Thread.sleep(8000);
 			click(locator_x);
-		}else {
-			System.out.println("no se lleno el formulario");
-		}
+		
 		} catch (NoSuchElementException e) {
 			System.out.println("No se encuentra el elemento: " + e);
 		} catch (TimeoutException e) {
@@ -168,7 +164,10 @@ public class contactPage extends BasicWrap{
 		
 		
 	}
-	public void userBuilder() {
+	public void userBuilder() throws InterruptedException {
+		
+		Thread.sleep(8000);
+		click(locator_enterButton);
 		
 	}
 

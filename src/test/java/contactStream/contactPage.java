@@ -20,7 +20,7 @@ public class contactPage extends BasicWrap{
 	
 	
 	By locator_buyNew = By.linkText("COMPRA NUEVO");
-	By locator_builder = By.id("lname");
+	By locator_builder = By.cssSelector("input[formcontrolname=\"builderName\"]");
 	By locator_constructoraTuHogar = By.id("mat-option[ng-reflect-value=\"Constructora tu hogar\"]");
 	By locator_applyButton = By.id("btn-filter-desktop");
 	By locator_cancelar = By.cssSelector("button[class=\"btn cancel\"]");
@@ -44,7 +44,7 @@ public class contactPage extends BasicWrap{
 	By locator_sixMonths = By.cssSelector("mat-option[ng-reflect-value=\\\"En 6 meses\\\"]\"");
 	By locator_nineMonths = By.cssSelector("mat-option[ng-reflect-value=\\\"En 9 meses\\\"]\"");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
-	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
+	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-checkmark\"]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
 	By locator_x = By.xpath("//*[@id=\"detail-contact-sales\"]/button/span/span");
 	By locator_enterButton = By.linkText("INGRESAR");
@@ -82,6 +82,7 @@ public class contactPage extends BasicWrap{
 			click(locator_buyNew);
 			
 			if(isDisplayed(locator_builder)) {
+				Thread.sleep(8000);
 			WebElement text = driver.findElement(locator_builder);
 			type(Constructora, locator_builder);
 			Thread.sleep(8000);
@@ -124,7 +125,7 @@ public class contactPage extends BasicWrap{
 			type(name, locator_name);
 			type(email, locator_email);
 			type(cellPhone, locator_cellPhone);
-			click(locator_schedule);
+			/*click(locator_schedule);
 			if(customerSupport.equals("lunes a viernes am")) {
 				click(locator_mondayFridayam);
 			}if(customerSupport.equals("lunes a viernes pm")) {
@@ -148,8 +149,8 @@ public class contactPage extends BasicWrap{
 				click(locator_sixMonths);
 			}if(planToBuy.equals("9 meses")) {
 				click(locator_nineMonths);
-			}
-			
+			}*/
+			Thread.sleep(10000);
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();

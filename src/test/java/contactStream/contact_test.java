@@ -17,7 +17,7 @@ public class contact_test {
 	public void setUp() throws Exception {
 		ContactPage = new contactPage(driver);
 		driver = ContactPage.chromeDriverConnection();
-		ContactPage.visit("https://qa.ciencuadras.com/");
+		ContactPage.visit("https://pre.ciencuadras.com/");
 	}
 
 	@After

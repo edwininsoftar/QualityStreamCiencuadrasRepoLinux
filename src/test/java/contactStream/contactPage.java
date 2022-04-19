@@ -125,7 +125,7 @@ public class contactPage extends BasicWrap{
 			type(name, locator_name);
 			type(email, locator_email);
 			type(cellPhone, locator_cellPhone);
-			/*click(locator_schedule);
+			click(locator_schedule);
 			if(customerSupport.equals("lunes a viernes am")) {
 				click(locator_mondayFridayam);
 			}if(customerSupport.equals("lunes a viernes pm")) {
@@ -149,8 +149,8 @@ public class contactPage extends BasicWrap{
 				click(locator_sixMonths);
 			}if(planToBuy.equals("9 meses")) {
 				click(locator_nineMonths);
-			}*/
-			//Thread.sleep(10000);
+			}
+			Thread.sleep(10000);
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
@@ -183,12 +183,14 @@ public class contactPage extends BasicWrap{
         Thread.sleep(8000);
         click(locator_menu);
         click(locator_myReports);
+        Thread.sleep(8000);
         WebElement dta = driver.findElement(locator_startDate);
         dta.clear();
 		dta.sendKeys(startDate);
         WebElement dtaFin = driver.findElement(locator_endDate);
-        dta.clear();
-		dta.sendKeys(endDate);
+        dtaFin.clear();
+        dtaFin.sendKeys(endDate);
+        click(locator_Consult);
 		String numText = driver.findElement(locator_clickForm).getText();
 		System.out.println(numText);
 		

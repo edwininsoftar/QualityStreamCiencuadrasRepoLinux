@@ -59,7 +59,7 @@ public class contactPage extends BasicWrap{
 	By locator_clickForm = By.id("//*[@id=\"tablaReportes\"]/table/tbody/tr[2]/td[5]");
 	
 	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
-	String Constructora = "Constructora uno";//nombre de la constructora que va a buscar
+	String Constructora = "Constructora tu hogar";//nombre de la constructora que va a buscar
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";
 	String cellPhone = "3123454345";
@@ -90,7 +90,7 @@ public class contactPage extends BasicWrap{
 			click(locator_applyButton);
 			Thread.sleep(8000);
 			click(locator_cancelar);
-			Thread.sleep(8000);
+			Thread.sleep(10000);
 			if (Contact.equals("Contactar1")){
 				click(locator_contact1);
 			}if (Contact.equals("Contactar2")){
@@ -154,10 +154,10 @@ public class contactPage extends BasicWrap{
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
 			driver.switchTo().defaultContent();
-			
-            click(locator_buttonSend);
-			Thread.sleep(8000);
-			click(locator_x);
+			//Thread.sleep(10000);
+            //click(locator_buttonSend);
+			//Thread.sleep(15000);
+			//click(locator_x);
 		
 		} catch (NoSuchElementException e){ 
 			System.out.println("No se encuentra el elemento: " + e);

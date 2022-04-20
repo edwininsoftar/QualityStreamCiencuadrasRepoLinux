@@ -18,11 +18,10 @@ import io.netty.handler.timeout.TimeoutException;
 
 public class contactPage extends BasicWrap{
 	
-	
 	By locator_buyNew = By.linkText("COMPRA NUEVO");
 	By locator_builder = By.cssSelector("input[formcontrolname=\"builderName\"]");
 	By locator_constructoraTuHogar = By.id("mat-option[ng-reflect-value=\"Constructora tu hogar\"]");
-	By locator_applyButton = By.id("btn-filter-desktop");
+	By locator_applyButton = By.xpath("//*[@id=\"btn-filter-desktop\"]");
 	By locator_cancelar = By.cssSelector("button[class=\"btn cancel\"]");
 	By locator_contact1 = By.xpath("//*[@id=\"all-content\"]/app-card[1]/div/div/div[2]/div/button[3]");
 	By locator_contact2 = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
@@ -56,7 +55,7 @@ public class contactPage extends BasicWrap{
 	By locator_startDate = By.id("fechaDesde");
 	By locator_endDate = By.id("fechaHasta");
 	By locator_Consult = By.id("btn-submit-home");
-	By locator_clickForm = By.xpath("//table/tbody/tr[2]/td[5]");
+	By locator_clickForm = By.xpath("/html/body/div[3]/div/section/div/div[3]/div/div[4]/table/tbody/tr[2]/td[5]");
 	
 	
 	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
@@ -81,8 +80,6 @@ public class contactPage extends BasicWrap{
 		try {
 			Thread.sleep(8000);
 			click(locator_buyNew);
-			
-			if(isDisplayed(locator_builder)) {
 			Thread.sleep(8000);
 			WebElement text = driver.findElement(locator_builder);
 			type(Constructora, locator_builder);
@@ -93,7 +90,7 @@ public class contactPage extends BasicWrap{
 			Thread.sleep(8000);
 			click(locator_cancelar);
 			Thread.sleep(10000);
-			if (Contact.equals("Contactar1")){
+			if(Contact.equals("Contactar1")){
 				click(locator_contact1);
 			}if (Contact.equals("Contactar2")){
 				click(locator_contact2);
@@ -101,7 +98,6 @@ public class contactPage extends BasicWrap{
 				click(locator_contact3);
 			}if (Contact.equals("Contactar4")){
 				click(locator_contact4);
-			}
 			} else {
 				System.out.println("no se envio el contactar");
 			}
@@ -191,11 +187,11 @@ public class contactPage extends BasicWrap{
         WebElement dtaFin = driver.findElement(locator_endDate);
         dtaFin.clear();
         dtaFin.sendKeys(endDate);
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         click(locator_Consult);
-   
+        Thread.sleep(10000);
 		String numText = driver.findElement(locator_clickForm).getText();
-		System.out.println(numText);
+		System.out.println("Numero de contactos registrados: "+numText);
 		
 		}catch(NoSuchElementException e){
 			System.out.println("No se encuentra el elemento: " + e);

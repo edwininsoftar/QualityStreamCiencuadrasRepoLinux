@@ -28,8 +28,7 @@ public class contact_test {
 	public void test() throws InterruptedException {
 		ContactPage.contactBuyNew();
 		ContactPage.formContact();
-		ContactPage.userBuilder();
-		
+		ContactPage.userBuilder(); 
 	}
 
 }

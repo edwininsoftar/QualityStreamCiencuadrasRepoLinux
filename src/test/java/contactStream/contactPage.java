@@ -56,7 +56,8 @@ public class contactPage extends BasicWrap{
 	By locator_startDate = By.id("fechaDesde");
 	By locator_endDate = By.id("fechaHasta");
 	By locator_Consult = By.id("btn-submit-home");
-	By locator_clickForm = By.id("//*[@id=\"tablaReportes\"]/table/tbody/tr[2]/td[5]");
+	By locator_clickForm = By.xpath("//table/tbody/tr[2]/td[5]");
+	
 	
 	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
 	String Constructora = "Constructora tu hogar";//nombre de la constructora que va a buscar
@@ -82,7 +83,7 @@ public class contactPage extends BasicWrap{
 			click(locator_buyNew);
 			
 			if(isDisplayed(locator_builder)) {
-				Thread.sleep(8000);
+			Thread.sleep(8000);
 			WebElement text = driver.findElement(locator_builder);
 			type(Constructora, locator_builder);
 			Thread.sleep(8000);
@@ -190,7 +191,9 @@ public class contactPage extends BasicWrap{
         WebElement dtaFin = driver.findElement(locator_endDate);
         dtaFin.clear();
         dtaFin.sendKeys(endDate);
+        Thread.sleep(8000);
         click(locator_Consult);
+   
 		String numText = driver.findElement(locator_clickForm).getText();
 		System.out.println(numText);
 		

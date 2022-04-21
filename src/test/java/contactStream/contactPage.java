@@ -17,7 +17,7 @@ import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class contactPage extends BasicWrap{
-	
+	//Localizadores para llegar al contactar
 	By locator_buyNew = By.linkText("COMPRA NUEVO");
 	By locator_builder = By.cssSelector("input[formcontrolname=\"builderName\"]");
 	By locator_constructoraTuHogar = By.id("mat-option[ng-reflect-value=\"Constructora tu hogar\"]");
@@ -27,6 +27,7 @@ public class contactPage extends BasicWrap{
 	By locator_contact2 = By.xpath("//*[@id=\"all-content\"]/app-card[2]/div/div/div[2]/div/button[3]");
 	By locator_contact3 = By.xpath("//*[@id=\"all-content\"]/app-card[3]/div/div/div[2]/div/button[3]");
 	By locator_contact4 = By.xpath("//*[@id=\"all-content\"]/app-card[4]/div/div/div[2]/div/button[3]");
+	//Localizadores para llenar el formulario contactar
 	By locator_name = By.id("name");
 	By locator_email = By.id("email");
 	By locator_cellPhone = By.id("cellPhone");
@@ -46,6 +47,7 @@ public class contactPage extends BasicWrap{
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 	By locator_buttonSend = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
 	By locator_x = By.xpath("//*[@id=\"detail-contact-sales\"]/button/span/span");
+	//Localizadores para validar que si se envio el contactar como usuario Constructora
 	By locator_enterButton = By.linkText("INGRESAR");
 	By locator_user = By.cssSelector("input[formcontrolname=\"username\"]");
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
@@ -58,11 +60,11 @@ public class contactPage extends BasicWrap{
 	By locator_clickForm = By.xpath("/html/body/div[3]/div/section/div/div[3]/div/div[4]/table/tbody/tr[2]/td[5]");
 	
 	
-	String Contact = "Contactar1"; //Contactar1,Contactar2,Contactar3,Contactar4,
+	String Contact = "Contactar1"; //Contactar para las primeras 4 card de proyectos "Contactar1,Contactar2,Contactar3,Contactar4,"
 	String Constructora = "Constructora tu hogar";//nombre de la constructora que va a buscar
 	String name = "fabian corrales"; // Nombre o razon social
-	String email = "leonardo2121@yopmail.com";
-	String cellPhone = "3123454345";
+	String email = "leonardo2121@yopmail.com";// correo electronico
+	String cellPhone = "3123454345";// celular
 	String customerSupport = "lunes a viernes am"; //elige un horario para contactarme lunes a viernes am,lunes a viernes pm,Fin de semana am,Fin de semana pm 
 	String livinPlace = "Para invertir"; //para que buscas vivienda Para invertir, Para vivir
     String planToBuy = "3 meses"; // cuando planeas comprar 3 meses, 6 meses, 9 meses,

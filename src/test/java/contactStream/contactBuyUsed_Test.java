@@ -26,6 +26,8 @@ public class contactBuyUsed_Test {
 	@Test
 	public void test() throws InterruptedException {
 		ContactBuyUsedPage.contactBuyUsed();
+		ContactBuyUsedPage.formContact();
+		ContactBuyUsedPage.userRealEstate();
 	}
 
 }

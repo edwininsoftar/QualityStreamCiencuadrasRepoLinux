@@ -17,6 +17,8 @@ public class contactBuyUsedPage extends BasicWrap {
 
 	// Localizadores para llegar al contactar
 	By locator_buyUsed = By.linkText("COMPRA USADO");
+	By locator_Offers = By.linkText("OFERTAS");
+	By locator_leaseProperty = By.linkText("ARRENDAR INMUEBLE");
 	By locator_search = By.id("search");
 	By locator_city = By.xpath("/html/body/div[3]/div/div/div/div/mat-optgroup[1]/mat-option/span");
 	By locator_contact1 = By.xpath("//*[@id=\"all-content\"]/app-card[1]/div/div/div[2]/div/button[3]");
@@ -38,7 +40,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	By locator_x = By
 			.xpath("/html/body/div[2]/div[2]/div/mat-dialog-container/app-message-sended/div/div[1]/button/span/span");
 	// Localizadores para validar que si se envio el contactar como usuario
-	// Constructora
+	// inmobiliaria
 	By locator_enterButton = By.linkText("INGRESAR");
 	By locator_user = By.cssSelector("input[formcontrolname=\"username\"]");
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
@@ -50,7 +52,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	By locator_Consult = By.id("btn-submit-home");
 	By locator_clickForm = By.xpath("/html/body/div[3]/div/section/div/div[3]/div/div[5]/table/tbody/tr[2]/td[5]");
 
-
+	String resultsContact = "Arrendar inmueble"; // para enviar el contactar desde Ofertas, Compra usado, Arrendar inmueble
 	String Ciudad = "Tabio"; // ciudad para utilizar en el buscador
 	String Contact = "Contactar1"; // Contactar para las primeras 4 card de inmuebles usados
 									// "Contactar1,Contactar2,Contactar3,Contactar4"
@@ -59,10 +61,10 @@ public class contactBuyUsedPage extends BasicWrap {
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";// correo electronico
 	String cellPhone = "3123454345";// celular
-	String user = "qa.cieninmuebles21@yopmail.com";//usuario de constructora
-    String password = "Ciencuadras21*";//contraseña
-    String startDate = "2022-04-01"; //fecha inicio de reporte
-    String endDate = "2022-04-30";// fecha de fin de reporte
+	String user = "qa.cieninmuebles21@yopmail.com";// usuario de constructora
+	String password = "Ciencuadras21*";// contraseña
+	String startDate = "2022-04-01"; // fecha inicio de reporte
+	String endDate = "2022-04-30";// fecha de fin de reporte
 
 	public contactBuyUsedPage(WebDriver driver) {
 		super(driver);
@@ -72,7 +74,16 @@ public class contactBuyUsedPage extends BasicWrap {
 	public void contactBuyUsed() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
-			click(locator_buyUsed);
+			if (resultsContact.equals("Compra usado")) {
+				click(locator_buyUsed);
+			}
+			if (resultsContact.equals("Ofertas")) {
+				click(locator_Offers);
+			}
+			if (resultsContact.equals("Arrendar inmueble")) {
+				click(locator_leaseProperty);
+			}
+
 			Thread.sleep(8000);
 			WebElement ciudad = driver.findElement(locator_search);
 			type(Ciudad, locator_search);
@@ -148,39 +159,38 @@ public class contactBuyUsedPage extends BasicWrap {
 	}
 
 	public void userRealEstate() throws InterruptedException {
-			
-			try {
+
+		try {
 			Thread.sleep(8000);
 			click(locator_enterButton);
-	        type(user, locator_user);
-	        type(password, locator_password);
-	        click(locator_logIn);
-	        Thread.sleep(8000);
-	        click(locator_menu);
-	        click(locator_myReports);
-	        Thread.sleep(8000);
-	        WebElement dta = driver.findElement(locator_startDate);
-	        dta.clear();
+			type(user, locator_user);
+			type(password, locator_password);
+			click(locator_logIn);
+			Thread.sleep(8000);
+			click(locator_menu);
+			click(locator_myReports);
+			Thread.sleep(8000);
+			WebElement dta = driver.findElement(locator_startDate);
+			dta.clear();
 			dta.sendKeys(startDate);
-	        WebElement dtaFin = driver.findElement(locator_endDate);
-	        dtaFin.clear();
-	        dtaFin.sendKeys(endDate);
-	        Thread.sleep(5000);
-	        click(locator_Consult);
-	        Thread.sleep(15000);
+			WebElement dtaFin = driver.findElement(locator_endDate);
+			dtaFin.clear();
+			dtaFin.sendKeys(endDate);
+			Thread.sleep(5000);
+			click(locator_Consult);
+			Thread.sleep(30000);
 			String numText = driver.findElement(locator_clickForm).getText();
-			System.out.println("Numero de contactos registrados: "+numText);
-			
-			}catch(NoSuchElementException e){
-				System.out.println("No se encuentra el elemento: " + e);
-			}catch(TimeoutException e){
-				System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
-			}catch(Exception e){
-				System.out.println("Error" + e);
-			}finally {
-				System.out.println("Fin validaciones del contactar");
-			}
-			
+			System.out.println("Numero de contactos registrados: " + numText);
+
+		} catch (NoSuchElementException e) {
+			System.out.println("No se encuentra el elemento: " + e);
+		} catch (TimeoutException e) {
+			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+		} catch (Exception e) {
+			System.out.println("Error" + e);
+		} finally {
+			System.out.println("Fin validaciones del contactar");
+		}
 
 	}
 

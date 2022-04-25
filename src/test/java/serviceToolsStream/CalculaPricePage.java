@@ -1,9 +1,12 @@
 package serviceToolsStream;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.paulhammant.ngwebdriver.ByAngular;
@@ -13,14 +16,14 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 import Base.BasicWrap;
 
 public class CalculaPricePage extends BasicWrap{
-	//Formulario ubicación del inmueble
+	//Formulario ubicaciï¿½n del inmueble
 	By locator_ButtonCalculaPrice = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
 	By locator_city = By.id("mat-input-0");
 	By locator_address = By.id("mat-input-1");
 	By locator_addressAdd = By.id("mat-input-2");
 	By locator_checkMap = By.id("mat-checkbox-1");
 	By locator_button_continue = By.cssSelector("button[class=\"btn button rounded secondary\"]");
-	//Información del inmueble
+	//Informaciï¿½n del inmueble
 	By locator_typeProperty = By.id("mat-select-0");
 	By locator_apartment = By.id("mat-option-0");
 	By locator_house = By.id("mat-option-1");
@@ -121,20 +124,20 @@ public class CalculaPricePage extends BasicWrap{
 	//Listo descarga reporte
 	By locator_report = By.xpath("//*[@id=\"cdk-step-content-0-3\"]/app-generate-report/div/div[2]/div[1]/button");
 	
-	//Formulario ubicación del inmueble
-	String city = "Bogotá"; // Ingrese la ciudad
-	String address = "Calle 184 # 20-51";// Ingrese la dirección 
-	String addressAdd = "Segundo piso";//Ingrese el complemento de la dirección
-	//Información del inmueble
+	//Formulario ubicaciï¿½n del inmueble
+	String city = "Bogotï¿½"; // Ingrese la ciudad
+	String address = "Calle 184 # 20-51";// Ingrese la direcciï¿½n 
+	String addressAdd = "Segundo piso";//Ingrese el complemento de la direcciï¿½n
+	//Informaciï¿½n del inmueble
 	String typeProperty = "Apartamento";//Casa, Apartamento
 	String transactionType = "Arriendo";//Arriendo, Venta
 	String stratum = "3";// estrato: 1,2,3,4,5,6
 	String area = "85.5";//Ingrese el area en metros cuadrados 
-	String antiquity = "10";//Ingrese la antiguedad del inmueble en años
+	String antiquity = "10";//Ingrese la antiguedad del inmueble en aï¿½os
 	int parkingLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de parqueaderos
 	int parkingMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de parqueaderos 
-	int toiletsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de baños
-	int toiletsMore = 0; //Ingrese el numero de clicks si desea aumentar la cantidad de baños 
+	int toiletsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de baï¿½os
+	int toiletsMore = 0; //Ingrese el numero de clicks si desea aumentar la cantidad de baï¿½os 
 	int roomsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de habitaciones
 	int roomsMore = 3;//Ingrese el numero de clicks si desea aunmentar la cantidad de habitaciones 
 	int balconiesMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
@@ -145,9 +148,9 @@ public class CalculaPricePage extends BasicWrap{
 	String names = "Sebastian Andres";//Ingrese los nombres
 	String surnames = "Rodiguez Cepeda";//ingrese los apellidos
 	String identityDocument = "CC";//CC,NIT,CE
-	String idNumber = "1057585412";//Ingrese el numero de identificación
+	String idNumber = "1057585412";//Ingrese el numero de identificaciï¿½n
 	String email = "emaildepagoprueba@yopmail.com";// Ingrese el email 
-	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmación del email
+	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmaciï¿½n del email
 	String phone = "205814789";// Ingrese el numero de celular sin el numero 3
 	String acceptTerms = "Si";//Si, No //Ingrese si o no si hacepta los terminos 
 	String dataTreatment = "Si";// Si, No // Ingrese si o no si acepta el tratamiento de datos
@@ -161,7 +164,7 @@ public class CalculaPricePage extends BasicWrap{
 	String holderName = "Sebastian Andres Rodiguez Cepeda"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
 	String monthCard = "12";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
@@ -195,10 +198,15 @@ public class CalculaPricePage extends BasicWrap{
 			type(addressAdd, locator_addressAdd);
 			click(locator_checkMap);
 			click(locator_button_continue);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+ e);
 		}
-		
 	}
 	
 	public void propertyInformation() {
@@ -276,8 +284,14 @@ public class CalculaPricePage extends BasicWrap{
 				click(locator_elevatorsMore);
 			}
 			click(locator_buttonContinue);
-		} catch (Exception e) {
+		} catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -308,8 +322,14 @@ public class CalculaPricePage extends BasicWrap{
 			}
 			Thread.sleep(5000);	
 			click(locator_buttonContinueTwo);
-		} catch (Exception e) {
+		} catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -322,8 +342,14 @@ public class CalculaPricePage extends BasicWrap{
 			}
 			click(locator_buttonPayfinish);
 			Thread.sleep(8000);
-		} catch (Exception e) {
+		} catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -439,8 +465,14 @@ public class CalculaPricePage extends BasicWrap{
 			}
 			Thread.sleep(5000);
 			click(locator_report);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
+		}
 	}
 }

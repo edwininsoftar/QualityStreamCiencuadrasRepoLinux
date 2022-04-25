@@ -1,9 +1,12 @@
 package serviceToolsStream;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.paulhammant.ngwebdriver.ByAngular;
@@ -45,7 +48,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_depositPrivate = By.xpath("//*[@id=\"mat-radio-10\"]/label/span[1]/span[2]");
 	By locator_depositExclusive = By.xpath("//*[@id=\"mat-radio-11\"]");
 	By locator_buttonContinue = ByAngular.buttonText("Continuar");
-	//Formulario de facturación
+	//Formulario de facturaciï¿½n
 	By locator_email = By.id("mat-input-9");
 	By locator_typeDocument = By.cssSelector("div[class=\"mat-select-arrow ng-tns-c165-20\"]");
 	By locator_cc = By.xpath("//*[@id=\"mat-option-32\"]/span");
@@ -124,13 +127,13 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_documentNumber = By.id("mat-input-17");
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
-	//Avalúo
+	//Avalï¿½o
 	String appraisalFrom = "Colombia";//Colombia
-	String city = "Bogotá"; //Ingrese la ciudad que desea hacer el avaluo 
+	String city = "Bogotï¿½"; //Ingrese la ciudad que desea hacer el avaluo 
 	//formato de solicitud 
 	String typeProperty = "Casa";//Apartamento, Casa
-	String address = "Calle 128 # 52-46";//Ingrese la dirección
-	String addressAdd = "Primer Piso";//complemento de la dirección
+	String address = "Calle 128 # 52-46";//Ingrese la direcciï¿½n
+	String addressAdd = "Primer Piso";//complemento de la direcciï¿½n
 	String sale = "120000000";//Valor estimado de venta 
 	String zone = "2";// ingrese la zona
 	String enrollment = "12345678"; // ingrese la matricula inmobiliaria
@@ -140,14 +143,14 @@ public class RequestAppraisalPage extends BasicWrap {
 	int deposit = 1;// Ingrese el numero de depositos
 	String typeParking = "Exclusivo"; // Comunal, Privado, Exclusivo
 	String typeDeposit = "Exclusivo"; // Comunal, Privado, Exclusivo
-	//Formulario de facturación
+	//Formulario de facturaciï¿½n
 	String email = "pruebaciencuadras@yopmail.com"; // Ingrese email
 	String typedocument = "CC";// CC, NIT, CCE, Pasaporte
 	String document = "80427865 "; //Ingrese el numero de documento
 	String name = "Juan Daniel Rodriguez Lopes";// Ingrese su nombre
 	String phone = "201569874"; // Ingrese el numero de celular sin el 3
 	String homeVisit = "Si"; // Si, No
-	String nameTwo = "Pedro alejandro Muños";// Ingrese nombre de la persona que recibira la visita
+	String nameTwo = "Pedro alejandro Muï¿½os";// Ingrese nombre de la persona que recibira la visita
 	String phoneTwo = "201256487";// Ingrese numero de la persona que recivira la visita 
 	String emailTwo = "pruebacorreovisita@yopmail.com";// Ingrese el correo de la persona que recivira la visita
 	String ownerName = "Luis Alejandro Rodriguez Lopez"; // Ingrese el nombre de propietario
@@ -164,7 +167,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
 	String monthCard = "12";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
@@ -203,8 +206,14 @@ public class RequestAppraisalPage extends BasicWrap {
 			if(appraisalFrom.equals("Exterior")) {
 				click(locator_buttonExterior);
 			}
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -268,8 +277,14 @@ public class RequestAppraisalPage extends BasicWrap {
 			}
 			Thread.sleep(8000);
 			click(locator_buttonContinue);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -309,8 +324,14 @@ public class RequestAppraisalPage extends BasicWrap {
 				click(locator_processingPersonalData);
 			}
 			click(locator_pay);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -323,8 +344,14 @@ public class RequestAppraisalPage extends BasicWrap {
 			}
 			click(locator_buttonPayfinish);
 			Thread.sleep(8000);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 	
@@ -434,9 +461,15 @@ public class RequestAppraisalPage extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_paymentDaviplata);
 			}
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
+		}
 	}
 
 }

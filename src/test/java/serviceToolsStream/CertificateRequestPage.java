@@ -1,9 +1,12 @@
 package serviceToolsStream;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -53,8 +56,14 @@ public class CertificateRequestPage extends BasicWrap{
 			driver.switchTo().defaultContent();
 			Thread.sleep(5000);
 			click(locator_buttonContinue);
-		} catch (Exception e) {
+		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+ e);
 		}
 	}
 }

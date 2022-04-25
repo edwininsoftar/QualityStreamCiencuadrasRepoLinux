@@ -105,13 +105,11 @@ public class contactPage extends BasicWrap {
 				click(locator_contact4);
 			}
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
 		}
 	}
 
@@ -163,14 +161,12 @@ public class contactPage extends BasicWrap {
 			click(locator_x);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+		} 
 
 	}
 
@@ -199,13 +195,11 @@ public class contactPage extends BasicWrap {
 			System.out.println("Numero de contactos registrados: " + numText);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+		} 
 	}
 }

@@ -111,17 +111,13 @@ public class contactBuyUsedPage extends BasicWrap {
 			}
 			if (letter.equals("letter4")) {
 				click(locator_letter4);
-			} else {
-				System.out.println("no se envio el contactar");
-			}
+			} 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
-			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
+			System.out.println("Error:"+ e);
 		}
 
 	}
@@ -145,14 +141,12 @@ public class contactBuyUsedPage extends BasicWrap {
 			click(locator_x);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
-			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+			System.out.println("Error:" +e);
+		} 
 	}
 
 	public void userRealEstate() throws InterruptedException {
@@ -180,14 +174,12 @@ public class contactBuyUsedPage extends BasicWrap {
 			System.out.println("Numero de contactos registrados: " + numText);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+		} 
 
 	}
 

@@ -18,10 +18,14 @@ public class BasicWrap {
 			this.driver = driver;
 		}
 		
-		// CREACI�N DE INSTACIA DEL NAVEGADOR CHROME
+		// CREACION DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
+			//Chrome
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");
 			driver = new ChromeDriver();
+			//Mozilla
+			//System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver");
+			//driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
 		}

@@ -98,9 +98,7 @@ public class contactPage extends BasicWrap{
 				click(locator_contact3);
 			}if (Contact.equals("Contactar4")){
 				click(locator_contact4);
-			} else {
-				System.out.println("no se envio el contactar");
-			}
+			} 
 		} catch (NoSuchElementException e) {
 			System.out.println("No se encuentra el elemento: " + e);
 		} catch (TimeoutException e) {
@@ -110,9 +108,6 @@ public class contactPage extends BasicWrap{
 		} finally {
 			System.out.println("Fin validaciones del contactar");
 		}
-		
-	
-	
 	}
 	
 	public void formContact() throws InterruptedException{
@@ -142,9 +137,11 @@ public class contactPage extends BasicWrap{
 			click(locator_planToBuy);
 			if(planToBuy.equals("3 meses")) {
 			click(locator_threeMonths);
-			}if(planToBuy.equals("6 meses")) {
+			}
+			if(planToBuy.equals("6 meses")) {
 				click(locator_sixMonths);
-			}if(planToBuy.equals("9 meses")) {
+			}
+			if(planToBuy.equals("9 meses")) {
 				click(locator_nineMonths);
 			}
 			Thread.sleep(10000);
@@ -198,13 +195,9 @@ public class contactPage extends BasicWrap{
 		}catch(TimeoutException e){
 			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
 		}catch(Exception e){
-			System.out.println("Error" + e);
+			System.out.println("Error: " + e);
 		}finally {
 			System.out.println("Fin validaciones del contactar");
-		}
-		
-		
+		}		
 	}
-
-
 }

@@ -1,14 +1,8 @@
 package createPurchaseStream;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
-<<<<<<< HEAD
 import org.openqa.selenium.NoSuchElementException;
-=======
-import org.openqa.selenium.TimeoutException;
->>>>>>> CreatePurchasePage
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -83,7 +77,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	
 	//FLujo Agente										
 	String username = "agenteciencuadras12@yopmail.com";//agenteciencuadras13@yopmail.com
-	String password = "@Contraseï¿½a112";
+	String password = "@Contraseña112";
 	//Escoge tu plan ideal
 	String plan = "PlanXS";//PlanXS, PlanS
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses
@@ -104,7 +98,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
 	String monthCard = "1225";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta 
+	String yearCard = "25";// Ingrese el año de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
@@ -114,7 +108,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	
+		
 	public void  buys() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
@@ -200,11 +194,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 			click(locator_buttonShoppingCart);
 			Thread.sleep(3000);
 			click(locator_buttonPay);
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);
@@ -306,11 +296,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);

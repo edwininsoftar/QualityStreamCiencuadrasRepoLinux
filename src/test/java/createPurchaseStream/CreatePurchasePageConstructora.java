@@ -1,15 +1,9 @@
 package createPurchaseStream;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
-<<<<<<< HEAD
 import org.openqa.selenium.NoSuchElementException;
-=======
-import org.openqa.selenium.TimeoutException;
->>>>>>> CreatePurchasePage
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -126,20 +120,19 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	int featured = 1;
 	int promoted = 1;
 	int online = 1;
-	// Datos de facturaciï¿½n
+	// Datos de facturación
 	String Nit = "900457893";// ingrese el nit
-	String dv = "7";// ingrese el digito de verificaciï¿½n
-	String city = "Bogotï¿½";
-	String address = "Calle 128 # 52-53";// ingrese la direciï¿½n
+	String dv = "7";// ingrese el digito de verificación
+	String city = "Bogotá";
+	String address = "Calle 128 # 52-53";// ingrese la direción
 	String email = "ciencuadras4@yopmail.com";
 	String confirmEmail = "ciencuadras4@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturaciï¿½n electronica
+	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
-	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor,
-													// NoResponsable
+	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor,NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
 	// Descuento y pago ciencuadras
@@ -152,10 +145,9 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta
 	String monthCard = "1225";// Ingrese el mes de la tarjeta
-	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta
+	String yearCard = "25";// Ingrese el año de la tarjeta
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
-	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de
-						// credito
+	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
 	String epayco = "edwinpulidonino@gmail.com";
 
@@ -199,11 +191,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				}
 			}
 			Thread.sleep(3000);
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);
@@ -249,11 +237,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			click(locator_buttonShoppingCart);
 			Thread.sleep(3000);
 			click(locator_buttonPay);
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);
@@ -357,11 +341,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			}
 			Thread.sleep(3000);
 			click(locator_buttonPayTow);
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);
@@ -380,11 +360,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);
@@ -469,11 +445,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-<<<<<<< HEAD
 		}catch (NoSuchElementException e) {
-=======
-		} catch (NoSuchElementException e) {
->>>>>>> CreatePurchasePage
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);

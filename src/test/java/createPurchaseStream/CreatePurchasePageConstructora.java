@@ -1,7 +1,9 @@
 package createPurchaseStream;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -10,6 +12,7 @@ import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePageConstructora extends BasicWrap {
 
@@ -190,8 +193,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				}
 			}
 			Thread.sleep(3000);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 
@@ -230,8 +239,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			click(locator_buttonShoppingCart);
 			Thread.sleep(3000);
 			click(locator_buttonPay);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 
@@ -328,8 +343,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			}
 			Thread.sleep(3000);
 			click(locator_buttonPayTow);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 
@@ -341,8 +362,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 
@@ -420,8 +447,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 

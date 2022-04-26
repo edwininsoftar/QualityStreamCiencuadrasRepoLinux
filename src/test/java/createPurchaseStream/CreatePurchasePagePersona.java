@@ -2,7 +2,9 @@ package createPurchaseStream;
 
 import java.io.File;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,6 +15,7 @@ import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePagePersona extends BasicWrap {
 	
@@ -28,9 +31,11 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	By locator_postYour = By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[1]/div[4]");
 	By locator_realEstate= By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[2]"); 
 	//Elige tu plan
-	By locator_free = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");	
-	By locator_standard = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
-	By locator_premium = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[3]/div/button");
+	By locator_standart = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");	
+	By locator_premium = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
+	By locator_cityPremium = By.cssSelector("div[class=\"mat-form-field-infix\"]>input[id=\"ciudad\"][ng-reflect-placeholder=\"Escribe y selecciona Ej: Bogot\"]");
+	By locator_buttonConfirmPremium = By.xpath("//*[@id=\"mat-dialog-0\"]/app-check-coverage/div/div[2]/div/button");
+	By locator_buttonContinuePremium = By.xpath("//*[@id=\"mat-dialog-1\"]/app-confirmed-coverage/div/div[2]/div/button");
 	//publica
 	By locator_propertyType = By.id("propertyTypeId");	
 	By locator_house = By.id("mat-option-4");
@@ -76,6 +81,10 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	//Imagenes del inmueble
 	By locator_img = By.id("ngx-input-file-0");
 	By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
+	By locator_datePremium = By.xpath("//*[@id=\"dateVisit\"]");
+	By locator_28 = By.xpath("//*[@id=\"mat-datepicker-0\"]/div/mat-month-view/table/tbody/tr[5]/td[5]/div");
+	By locator_timePremium = By.xpath("//*[@id=\"timeVisit\"]/div/div[1]");
+	By locator_9am = By.xpath("//*[@id=\"mat-option-28\"]/span");
 	//Pago y descuento ciencuadras
 	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
@@ -119,7 +128,8 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	//Acompañamiento
 	String popstType = "Tu";//Tu, Inmobiliaria
 	//Elige tu plan
-	String planType = "Gratis"; //Gratis, Estandar, Premium
+	String planType = "Premium"; //Estandar, Premium
+	String cityPremium = "Bogotá";// Ingrese la ciudad si el tipo de plan que seleciono es premium
 	//formulario publica
 	String propertyType = "Apartamento"; // Apartamento
 	String transactionType = "Arriendo";// Arriendo, Venta
@@ -177,22 +187,35 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			if(popstType.equals("Tu")) {
 				Thread.sleep(10000);
 				click(locator_postYour);
-				if(planType.equals("Gratis")) {
-					click(locator_free);
-				}
 				if(planType.equals("Estandar")) {
-					click(locator_standard);
+					click(locator_standart);
 				}
 				if(planType.equals("Premium")) {
 					click(locator_premium);
+					Thread.sleep(5000);
+					type(cityPremium,locator_cityPremium);
+					Thread.sleep(5000);
+					WebElement cp = driver.findElement(locator_cityPremium);
+					cp.sendKeys(Keys.DOWN);
+					cp.sendKeys(Keys.ENTER);
+					Thread.sleep(5000);
+					click(locator_buttonConfirmPremium);
+					Thread.sleep(3000);
+					click(locator_buttonContinuePremium);
 				}
 			}
 			if(popstType.equals("Inmobiliaria")) {
 				Thread.sleep(8000);
 				click(locator_realEstate);
 			}
-		} catch (Exception e) {
-			System.out.println("error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -295,8 +318,6 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			type(direction, locator_direction);
 			type(addaddress, locator_addaddress);
 			click(locator_propertyLocation);
-			/*type(identification, locator_identification);
-			Thread.sleep(3000);*/
 			type(Nwhatsapp, locator_NWhatsapp);
 			if(contactMe.equals("Whatsapp")) {
 				click(locator_contactMeWhatsapp);
@@ -306,7 +327,13 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			}
 			Thread.sleep(2000);
 			click(locator_continue);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -326,9 +353,25 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			Thread.sleep(5000);
 			driver.findElement(locator_img).sendKeys(phat3);
 			Thread.sleep(5000);
+			if(planType.equals("Premium")) {
+				Thread.sleep(3000);
+				click(locator_datePremium);
+				Thread.sleep(3000);
+				click(locator_28);
+				click(locator_timePremium);
+				Thread.sleep(3000);
+				click(locator_9am);
+			}
+			Thread.sleep(3000);
 			click(locator_continueTow);
-		} catch (Exception e) {
-			System.out.println("error: "+e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	public void payFinish() {
@@ -339,8 +382,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -418,8 +467,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }

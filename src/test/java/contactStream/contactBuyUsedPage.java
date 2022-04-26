@@ -60,7 +60,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";// correo electronico
 	String cellPhone = "3123454345";// celular
-	String user = "qa.cieninmuebles21@yopmail.com";// usuario de constructora
+	String user = "qa.cieninmuebles21@yopmail.com";// usuario de inmobiliaria
 	String password = "Ciencuadras21*";// contraseña
 	String startDate = "2022-04-01"; // fecha inicio de reporte
 	String endDate = "2022-04-30";// fecha de fin de reporte

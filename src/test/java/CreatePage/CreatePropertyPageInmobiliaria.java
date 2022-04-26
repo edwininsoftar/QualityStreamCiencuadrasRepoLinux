@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import Base.BasicWrap;
 
-public class CreatePropertyInmobiliariaPage extends BasicWrap{
+public class CreatePropertyPageInmobiliaria extends BasicWrap{
 	
 	// Flujo crear rol inmobiliaria 
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
@@ -162,7 +162,7 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 	String additionalInformation = "amoblado colores frescos";//Ingrese formación adicional
 	
 	
-	public CreatePropertyInmobiliariaPage(WebDriver driver) {
+	public CreatePropertyPageInmobiliaria(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

@@ -13,7 +13,7 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
 
-public class CreatePropertyPersonPage extends BasicWrap{
+public class CreatePropertyPagePersona extends BasicWrap{
 	
 	//Flucjo crear persona
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
@@ -160,7 +160,7 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	String epayco = "edwinpulidonino@gmail.com";
 	
 
-	public CreatePropertyPersonPage(WebDriver driver) {
+	public CreatePropertyPagePersona(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

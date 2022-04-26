@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import Base.BasicWrap;
 
-public class CreatePropertyAgentePage extends BasicWrap{
+public class CreatePropertyPageAgente extends BasicWrap{
 	
 	//Flujo crear rol Agente
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
@@ -161,7 +161,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	String additionalInformation = "amoblado colores frescos";//Ingrese formación adicional
 	
 	
-	public CreatePropertyAgentePage(WebDriver driver) {
+	public CreatePropertyPageAgente(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub 
 	}

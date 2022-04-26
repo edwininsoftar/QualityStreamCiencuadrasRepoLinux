@@ -8,11 +8,11 @@ import org.openqa.selenium.WebDriver;
 public class CreatePropertyInmobiliaria_Test {
 	
 	private WebDriver driver;
-	CreatePropertyInmobiliariaPage createPropertyInmobiliariaPage;
+	CreatePropertyPageInmobiliaria createPropertyInmobiliariaPage;
 
 	@Before
 	public void setUp() throws Exception {
-		createPropertyInmobiliariaPage = new CreatePropertyInmobiliariaPage(driver);
+		createPropertyInmobiliariaPage = new CreatePropertyPageInmobiliaria(driver);
 		driver = createPropertyInmobiliariaPage.chromeDriverConnection();
 		createPropertyInmobiliariaPage.visit("https://qa.ciencuadras.com/");
 	}

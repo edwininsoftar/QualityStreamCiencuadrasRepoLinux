@@ -8,11 +8,11 @@ import org.openqa.selenium.WebDriver;
 public class CreatePropertyAgente_Test {
 	
 	private WebDriver driver;
-	CreatePropertyAgentePage CreatePropertyAgentePage;
+	CreatePropertyPageAgente CreatePropertyAgentePage;
 	
 	@Before
 	public void setUp() throws Exception {
-		CreatePropertyAgentePage = new CreatePropertyAgentePage(driver);
+		CreatePropertyAgentePage = new CreatePropertyPageAgente(driver);
 		driver = CreatePropertyAgentePage.chromeDriverConnection();
 		CreatePropertyAgentePage.visit("https://qa.ciencuadras.com/");
 	}

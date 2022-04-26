@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
-public class createProjectBuilder extends BasicWrap{
+public class CreateProjectPageConstructora extends BasicWrap{
 	//localizadores de logueo hasta llegar a crear un proyecto 
 	By locator_enterButton = By.linkText("INGRESAR");
 	By locator_user = By.cssSelector("input[formcontrolname=\"username\"]");
@@ -30,7 +30,7 @@ public class createProjectBuilder extends BasicWrap{
 	String nameProject = "Oasis"; // nombre del proyecto
 	String stage = "Sobre plano"; //etapa del proyecto puede ser "seleccione, Sobre plano, Construcion, Entrega inmediata"
 
-	public createProjectBuilder(WebDriver driver) {
+	public CreateProjectPageConstructora(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

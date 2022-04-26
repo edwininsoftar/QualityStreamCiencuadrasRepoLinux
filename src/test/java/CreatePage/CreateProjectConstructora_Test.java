@@ -1,20 +1,18 @@
 package CreatePage;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class createProjectBuilder_Test {
+public class CreateProjectConstructora_Test {
 	
 	private WebDriver driver;
-	createProjectBuilder CreateProjectBuilder;
+	CreateProjectPageConstructora CreateProjectBuilder;
 
 	@Before
 	public void setUp() throws Exception {
-		CreateProjectBuilder = new createProjectBuilder(driver);
+		CreateProjectBuilder = new CreateProjectPageConstructora(driver);
 		driver = CreateProjectBuilder.chromeDriverConnection();
 		CreateProjectBuilder.visit("https://qa.ciencuadras.com/");
 	}

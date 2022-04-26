@@ -51,7 +51,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	By locator_Consult = By.id("btn-submit-home");
 	By locator_clickForm = By.xpath("/html/body/div[3]/div/section/div/div[3]/div/div[5]/table/tbody/tr[2]/td[5]");
 
-	String resultsContact = "Arrendar inmueble"; // para enviar el contactar desde Ofertas, Compra usado, Arrendar inmueble
+	String resultsContact = "Compra usado"; // para enviar el contactar desde Ofertas, Compra usado, Arrendar inmueble
 	String Ciudad = "Tabio"; // ciudad para utilizar en el buscador
 	String Contact = "Contactar1"; // Contactar para las primeras 4 card de inmuebles usados
 									// "Contactar1,Contactar2,Contactar3,Contactar4"

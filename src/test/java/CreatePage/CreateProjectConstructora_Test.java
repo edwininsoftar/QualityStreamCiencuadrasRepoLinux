@@ -25,6 +25,7 @@ public class CreateProjectConstructora_Test {
 	@Test
 	public void test() {
 		CreateProjectBuilder.logIn();
+		CreateProjectBuilder.publicProject();
 	}
 
 }

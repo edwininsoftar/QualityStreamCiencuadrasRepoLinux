@@ -23,17 +23,33 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	//localizadores para crear el proyecto
 	By locator_nameProject = By.id("nombreProyecto");
 	By locator_stage = By.id("select_etapa_cabecera");
-	By locator_select = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[1]");
-	By locator_onFlat = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[2]");
-	By locator_Construction = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[3]");
-	By locator_immediateDelivery = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[4]");
+	By locator_projectPhase = By.id("fase_proyecto");
+	By locator_stratum = By.id("input_estrato");
+	By locator_department = By.id("select_departamento_publicador");
+	By locator_city = By.id("select_ciudad_publicador");
+	By locator_location = By.id("select_localidad_publicador");
+	By locator_neighborhood = By.id("select_barrio_publicador");
+	By locator_direction = By.id("select_mostrar_direccion_publicador");
+	By locator_date = By.id("input_fecha_entrega");
+	By locator_condition = By.id("select_estado");
+	By locator_pay = By.id("select_membresia");
 	
 	//Login
 	String username = "ciencuadrasconstructora12@yopmail.com";//usuario constructora
 	String password = "LeonO1O1*"; // contraseña
-	String stage = "Sobre plano"; //etapa del proyecto puede ser "seleccione, Sobre plano, Construcion, Entrega inmediata"
 	//Crear nuevo proyecto
 	String nameProject = "Oasis"; // nombre del proyecto
+	String stage = "Sobre Plano"; //etapa del proyecto puede ser "seleccione, Sobre Plano, Construcion, Entrega Inmediata"
+	String projectPhase = "";//Ingrese Venta, PreVenta, Oferta Terminada, Lanzamiento
+	String straum = "3";//Ingrese 1,2,3,4,5 o 6 
+	String department = "Cundinamarca";// Ingrese el departamento
+	String city = "Bogotá";//ingrese la ciudad
+	String location = "Ciudad Bolivar";// Ingrese la localidad
+	String neighborhood = "Madelena";//Ingrese el barrio 
+	String direction = "Si";//Ingrese Si y No
+	String date = "06062022";// Ingrese la fecha 
+	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
+	String pay = "Pago";//Ingrese Pago, Gratis
 	
 	public CreateProjectPageConstructora(WebDriver driver) {
 		super(driver);
@@ -66,8 +82,9 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		try {
 			type(nameProject, locator_nameProject);
 			Thread.sleep(3000);
-			WebElement Eta = driver.findElement(locator_stage);
-			
+			WebElement eta = driver.findElement(locator_stage);
+			Select sel = new Select(eta);
+			sel.selectByVisibleText(stage);
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {

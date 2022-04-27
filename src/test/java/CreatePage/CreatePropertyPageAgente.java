@@ -18,7 +18,7 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	By locator_user = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]");
 	By locator_publishedProperty = By.linkText("Inmuebles publicados");
 	By locator_createProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[2]/a[1]");
-	//Publicación de un inmueble
+	//Publicacion de un inmueble
 	By locator_registration = By.id("inmueble-matricula_inmobiliaria");
 	By locator_openButton = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/button");
 	By locator_department = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/div/div/input");
@@ -62,7 +62,7 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	By locator_textComplement2 = By.id("dir14");
 	By loator_buttonAddress = By.id("ocultar_direccion");
 	By locator_nickname = By.id("inmueble-apodo");
-	//Caracteristicas información basica
+	//Caracteristicas informaciï¿½n basica
 	By locator_apartment3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[4]/a/span[1]");
 	By locator_house3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[5]/a/span[1]");
 	By locator_openButton14 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/button");
@@ -102,7 +102,7 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	By locator_coverPhoto = By.name("fotoPortada");
 	By locator_accept = By.xpath("/html/body/div[17]/div[2]/div/div/div/div/div/div/div/div[4]/button");
 	By locator_uploadFile = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[11]/div[4]/div[5]/div[4]/div[2]/a");
-	//Comprobación 
+	//Comprobaciï¿½n 
 	By locator_codeProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[1]/div[2]/p[1]/span/strong");
 	By locator_textCode = By.id("inmueblesearch-codigo");
 	By locator_searh = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[6]/div[2]/a");
@@ -113,10 +113,10 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	
 	//Flujo crear rol Agente
 	String username = "agenteciencuadras1@yopmail.com";
-	String password = "@Contraseña112";
-	//Publicación de un inmueble
+	String password = "@Contraseï¿½a112";
+	//Publicaciï¿½n de un inmueble
 	String registration = "45859674";// Ingrese la matricula inmobiliaria 
-	String department = "Boyacá";// ingrese el departamento
+	String department = "Boyacï¿½";// ingrese el departamento
 	String city = "Sogamoso";//Ingrese la ciudad
 	String location = "Sogamoso";//Ingrese la localidad
 	String neighborhood = "UPTC";//Ingrese el barrio 
@@ -136,14 +136,14 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	String textComplement2 = "piso2";
 	String buttonAddress = "Si";// Ingresi Si o No si decea que la direccion sea visible 
 	String nickname = "San calletano";
-	//Caracteristicas información basica
+	//Caracteristicas informaciï¿½n basica
 	String property = "Casa";//Ingrese Casa y Apartamento
 	String transactionType = "Arriendo";//ingrese Arriendo, Venta o Arriendo y Venta
 	String stratum = "2";//Ingrese el estrato 2 o 3
 	String area = "50";//Ingrese el valor del area en metros cuadrados
 	String lotArea = "60";//Ingrese el valor del area en metros cuadrados
 	String room = "3";//Ingrese el numero de habitaciones
-	String bath = "2";//Ingrese e numero de baños
+	String bath = "2";//Ingrese e numero de baï¿½os
 	String parking = "1";//Ingrese el numero de parqueaderos
 	String typeParking1 = "No";//Ingrese Si, si es Independiente 
 	String typeParking2 = "Si";//Ingrese Si, si es Servidumbre
@@ -153,12 +153,12 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	String valueRent = "800000";//Ingrese el valor del canos de arrendamiento 
 	String valueSale = "130000000";//Ingrese el valor del inmueble
 	String buttonAdministration = "Si";//Ingrese Si o No
-	String managementValue = "100000";//Ingrese el valor de la administración 
+	String managementValue = "100000";//Ingrese el valor de la administraciï¿½n 
 	String code = "28";//Ingrese el codigo
 	String buttonBrandNew = "No";//Ingrese Si o No
-	String antiquity = "3";//Ingrese los años de antiguedad
+	String antiquity = "3";//Ingrese los aï¿½os de antiguedad
 	String floor = "1";//Ingrese el piso 
-	String additionalInformation = "amoblado colores frescos";//Ingrese formación adicional
+	String additionalInformation = "amoblado colores frescos";//Ingrese formaciï¿½n adicional
 	
 	
 	public CreatePropertyPageAgente(WebDriver driver) {
@@ -465,16 +465,16 @@ public class CreatePropertyPageAgente extends BasicWrap{
 			String endroom = driver.findElement(locator_endRoom).getText();
 			String sEndroom = endroom.substring(0,1);
 			if(room.equals(sEndroom)) {
-				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndroom);
+				System.out.println("El nï¿½mero de habitaciones concuerda con las ingresadas: "+sEndroom);
 			}else {
-				System.out.println("El número de habitaciones consultados no concuerda con los ingresados");
+				System.out.println("El nï¿½mero de habitaciones consultados no concuerda con los ingresados");
 			}
 			String endBath = driver.findElement(locator_endBath).getText();
 			String sEndBath = endBath.substring(0,1);
 			if(bath.equals(sEndBath)) {
-				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
+				System.out.println("El nï¿½mero de Baï¿½os concuerda con los ingresados: "+sEndBath);
 			}else {
-				System.out.println("El número de baños consultados no concuerda con los ingresados");
+				System.out.println("El nï¿½mero de baï¿½os consultados no concuerda con los ingresados");
 			}
 			String endM2 = driver.findElement(locator_endM2).getText();
 			String sEndM2 = endM2.substring(0,2);

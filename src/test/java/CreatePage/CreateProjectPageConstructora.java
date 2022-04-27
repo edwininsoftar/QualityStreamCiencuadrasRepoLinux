@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
@@ -20,17 +22,19 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_createProject = By.linkText("CREAR PROYECTO");
 	//localizadores para crear el proyecto
 	By locator_nameProject = By.id("nombreProyecto");
-	By locator_stage = By.xpath("//*[@id=\"select_etapa_cabecera\"]");
+	By locator_stage = By.id("select_etapa_cabecera");
 	By locator_select = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[1]");
 	By locator_onFlat = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[2]");
 	By locator_Construction = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[3]");
 	By locator_immediateDelivery = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[4]");
 	
+	//Login
 	String username = "ciencuadrasconstructora12@yopmail.com";//usuario constructora
 	String password = "LeonO1O1*"; // contraseña
-	String nameProject = "Oasis"; // nombre del proyecto
 	String stage = "Sobre plano"; //etapa del proyecto puede ser "seleccione, Sobre plano, Construcion, Entrega inmediata"
-
+	//Crear nuevo proyecto
+	String nameProject = "Oasis"; // nombre del proyecto
+	
 	public CreateProjectPageConstructora(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -48,6 +52,23 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			click(locator_publishedProperty);
 			click(locator_createProject);
 		}catch (NoSuchElementException e) {
+			System.out.println("Error: " + e);
+		}catch (TimeoutException e) {
+			System.out.println("Error: " + e);
+		}catch (ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error:" +e);
+		} 
+	}
+	
+	public void publicProject() {
+		try {
+			type(nameProject, locator_nameProject);
+			Thread.sleep(3000);
+			WebElement Eta = driver.findElement(locator_stage);
+			
+		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {
 			System.out.println("Error: " + e);

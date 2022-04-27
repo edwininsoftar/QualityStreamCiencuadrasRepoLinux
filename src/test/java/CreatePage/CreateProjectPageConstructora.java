@@ -37,13 +37,13 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	//Caracteristicas de los tipos de inmuebles
 	By locator_typeProperty = By.id("select_tipo_proyecto");
 	By locator_nameTypeProperty = By.id("inmueble-nombre_proyecto_1");
-	By locator_sale = By.id("inmueble-precio_desde_1");
+	By locator_price = By.id("inmueble-precio_desde_1");
 	By locator_numberRoom = By.id("select_num_habitaciones_1");
 	By locator_numberBath = By.id("select_num_banos_1");
 	By locator_numberParking = By.id("select_num_parqueaderos_1");
 	By locator_swimming = By.id("select_num_piscinas_privadas_1");
 	By locator_floor = By.id("inmueble_tipo_piso_1");
-	By locator_saleManagement = By.id("inmueble-valor_administracion_1");
+	By locator_valueManagement = By.id("inmueble-valor_administracion_1");
 	By locator_tvCircuit = By.id("inmueble_cir_cerr_tv_1");
 	By locator_serviceRoom = By.id("habitacion_servicio_1");
 	By locator_serviceBath = By.id("banio_servicio_1");
@@ -67,6 +67,20 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_kiln = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[1]");
 	By locator_extractor = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[2]");
 	By locator_dishwasher = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[3]");
+	// localizadores sala de ventas
+	By locator_nameRoom = By.id("nombre_sala_1");
+	By locator_roomAddress = By.id("sala_direccion_1");
+	By locator_callContactNumber = By.id("sala_ventas_telefono_fijo_1");
+	By locator_emailRoom = By.id("email_sala_1");
+	By locator_whatsappContactNumber = By.id("sala_ventas_num_celular_1");
+	By locator_seller = By.id("sala_ventas_vendedor_nombre_1");
+	//localizadores etapa
+	By locator_stage1 = By.id("etapa_nombre_1");
+	By locator_openingDate = By.id("inicio_etapa_1");
+	By locator_closingDate = By.id("finalizacion_etapa_1");
+	//localizadores informacion adicional
+	By locator_additionalInformation = By.id("proyecto-info_adicional");
+	
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
@@ -88,17 +102,17 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	//Caracteristicas de los tipos de inmuebles
 	String typeProperty = "Apartamento";//Ingrese el tipo de inmueble
 	String nameTypeProperty = "Duplex";//ingrese el nombre del tipo de apartamento
-	String sale = "130000000";// Ingrese el precio 
+	String price = "130000000";// Ingrese el precio 
 	String numberRoom = "3";// Ingrese el numero de habitaciones
 	String numberBath = "2";//Ingrese el numero de baños
 	String numberParking = "1";//Ingrese el numero de parqueaderos
 	String swimning = "No";//Ingrese Si o No si cuenta con piscina
 	String floor = "Baldosa";//Ingrese el tipo de piso
-	String saleManagement = "100000";//Ingrese el precio de la administración 
+	String valueManagement = "100000";//Ingrese el precio de la administración 
 	String tvCircuit = "No";//ingrese Si o No si cuenta con circuito cerrado de tv
 	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitación de servicio
 	String serviceBath = "No";//Ingrese Si o No si cuenta con baño de servicio
-	String laundryArea = "No";//Ingrese Si o No si cuenta con zona de labanderia 
+	String laundryArea = "No";//Ingrese Si o No si cuenta con zona de lavanderia 
 	String fireplace = "No";// Ingrese Si o No si cuenta con chimenea
 	String allowsPets = "Si";// Ingrese Si o No si permite mascotas
 	String typeStove = "Gas";// Ingrese el tipo de estufa 
@@ -117,6 +131,20 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String kiln = "No";//Ingrese Si o No si cuenta con horno
 	String extractor = "No";//Ingrese Si o No sicuenta con extractor
 	String dishwasher = "No";//Ingrese Si o No si cuenta con lavaplatos
+	// datos de sala de ventas
+	String nameRoom = "sala 1";//nombre de la sala
+	String roomAddress = "calle 12 # 5-05"; //direccion de la sala
+	String callContactNumber = "6013457689";//Número para contacto por llamada
+	String emailRoom = "sala1@gmail.com";//Email sala
+	String whatsappContactNumber = "3124567890";//Número para contacto por whatsapp
+	String seller = "luis carlos"; //Vendedor
+	//datos de etapa
+	String stage1 = "En construccion";//Nombre etapa
+	String openingDate = "12012022";//Fecha apertura
+	String closingDate = "07122022";//Fecha cierre
+	//datos informacion adicional
+	String additionalInformation = "Buena ubicación";//Informacion adicional
+			
 	
 	public CreateProjectPageConstructora(WebDriver driver) {
 		super(driver);
@@ -204,7 +232,112 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	
 	public void characteristicsProperty() {
 		try {
-			
+			Thread.sleep(3000);
+			WebElement tipInm = driver.findElement(locator_typeProperty);
+			Select sel11 = new Select(tipInm);
+			sel11.selectByVisibleText(typeProperty);
+			Thread.sleep(3000);
+			type(nameTypeProperty, locator_nameTypeProperty);
+			type(price, locator_price);
+		    Thread.sleep(3000);
+		    WebElement numHab = driver.findElement(locator_numberRoom);
+		    Select sel12 = new Select(numHab);
+		    sel12.selectByVisibleText(numberRoom);
+		    Thread.sleep(3000);
+		    WebElement numBañ = driver.findElement(locator_numberBath);
+		    Select sel13 = new Select(numBañ);
+		    sel13.selectByVisibleText(numberBath);
+		    Thread.sleep(3000);
+		    WebElement numPar = driver.findElement(locator_numberParking);
+		    Select sel14 = new Select(numPar);
+		    sel14.selectByVisibleText(numberParking);
+		    Thread.sleep(3000);
+		    WebElement pisPri = driver.findElement(locator_swimming);
+		    Select sel15 = new Select(pisPri);
+		    sel15.selectByVisibleText(swimning);
+		    Thread.sleep(3000);
+		    WebElement pisInm = driver.findElement(locator_floor);
+		    Select sel16 = new Select(pisInm);
+		    sel16.selectByVisibleText(floor);
+		    Thread.sleep(3000);
+		    type(valueManagement, locator_valueManagement);
+		    Thread.sleep(3000);
+		    WebElement cirTv = driver.findElement(locator_tvCircuit);
+		    Select sel17 = new Select(cirTv);
+		    sel17.selectByVisibleText(tvCircuit);
+		    Thread.sleep(3000);
+		    WebElement habSer = driver.findElement(locator_serviceRoom);
+		    Select sel18 = new Select(habSer);
+		    sel18.selectByVisibleText(ServiceRoom);
+		    Thread.sleep(3000);
+		    WebElement bañSer = driver.findElement(locator_serviceBath);
+		    Select sel19 = new Select(bañSer);
+		    sel19.selectByVisibleText(serviceBath);
+		    Thread.sleep(3000);
+		    WebElement zonLav = driver.findElement(locator_laundryArea);
+		    Select sel20 = new Select(zonLav);
+		    sel20.selectByVisibleText(laundryArea);
+		    Thread.sleep(3000);
+		    WebElement conChi = driver.findElement(locator_fireplace);
+		    Select sel21 = new Select(conChi);
+		    sel21.selectByVisibleText(fireplace);
+		    Thread.sleep(3000);
+		    WebElement perMas = driver.findElement(locator_allowsPets);
+		    Select sel22 = new Select(perMas);
+		    sel22.selectByVisibleText(allowsPets);
+		    Thread.sleep(3000);
+		    WebElement tipEst = driver.findElement(locator_typeStove);
+		    Select sel23 = new Select(tipEst);
+		    sel23.selectByVisibleText(typeStove);
+		    Thread.sleep(3000);
+		    WebElement tipCal = driver.findElement(locator_typeHeater);
+		    Select sel24 = new Select(tipCal);
+		    sel24.selectByVisibleText(typeHeater);
+		    Thread.sleep(3000);
+		    WebElement airAco = driver.findElement(locator_airConditioning);
+		    Select sel25 = new Select(airAco);
+		    sel25.selectByVisibleText(airConditioning);
+		    Thread.sleep(3000);
+		    WebElement zonTer = driver.findElement(locator_terraceArea);
+		    Select sel26 = new Select(zonTer);
+		    sel26.selectByVisibleText(terraceArea);
+		    Thread.sleep(3000);
+		    WebElement numTer = driver.findElement(locator_numberTerrace);
+		    Select sel27 = new Select(numTer);
+		    sel27.selectByVisibleText(numberTerrace);
+		    Thread.sleep(3000);
+		    WebElement areCon = driver.findElement(locator_builtArea);
+		    Select sel28 = new Select(areCon);
+		    sel28.selectByVisibleText(builtArea);
+		    Thread.sleep(3000);
+		    WebElement areTot = driver.findElement(locator_totalArea);
+		    Select sel29 = new Select(areTot);
+		    sel29.selectByVisibleText(totalArea);
+		    Thread.sleep(3000);
+		    WebElement numBal = driver.findElement(locator_numberBalcony);
+		    Select sel30 = new Select(numBal);
+		    sel30.selectByVisibleText(numberBalcony);
+		    Thread.sleep(3000);
+		    WebElement numDep = driver.findElement(locator_numberDeposits);
+		    Select sel31 = new Select(numDep);
+		    sel31.selectByVisibleText(numberDeposits);
+		    Thread.sleep(3000);
+		    WebElement fecEnt = driver.findElement(locator_deliverDate);
+		    fecEnt.sendKeys(deliverDate);
+		    Thread.sleep(3000);
+		    WebElement ven = driver.findElement(locator_soldOut);
+		    Select sel32 = new Select(ven);
+		    sel32.selectByVisibleText(soldOut);
+		    Thread.sleep(3000);
+		    WebElement tipPar = driver.findElement(locator_typeParking);
+		    Select sel33 = new Select(tipPar);
+		    sel33.selectByVisibleText(typeParking);
+		    Thread.sleep(3000);
+		    WebElement uniDis = driver.findElement(locator_unitsAvailable);
+		    Select sel34 = new Select(uniDis);
+		    sel34.selectByVisibleText(unitsAvailable);
+		   
+
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {

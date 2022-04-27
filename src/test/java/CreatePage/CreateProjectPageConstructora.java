@@ -1,7 +1,5 @@
 package CreatePage;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
@@ -36,6 +34,39 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_condition = By.id("select_estado");
 	By locator_pay = By.id("select_membresia");
 	By locator_directionComplit = By.id("publicador_direccion");
+	//Caracteristicas de los tipos de inmuebles
+	By locator_typeProperty = By.id("select_tipo_proyecto");
+	By locator_nameTypeProperty = By.id("inmueble-nombre_proyecto_1");
+	By locator_sale = By.id("inmueble-precio_desde_1");
+	By locator_numberRoom = By.id("select_num_habitaciones_1");
+	By locator_numberBath = By.id("select_num_banos_1");
+	By locator_numberParking = By.id("select_num_parqueaderos_1");
+	By locator_swimming = By.id("select_num_piscinas_privadas_1");
+	By locator_floor = By.id("inmueble_tipo_piso_1");
+	By locator_saleManagement = By.id("inmueble-valor_administracion_1");
+	By locator_tvCircuit = By.id("inmueble_cir_cerr_tv_1");
+	By locator_serviceRoom = By.id("habitacion_servicio_1");
+	By locator_serviceBath = By.id("banio_servicio_1");
+	By locator_laundryArea = By.id("zona_lavanderia_1");
+	By locator_fireplace = By.id("select_con_chimenea_1");
+	By locator_allowsPets = By.id("select_permite_mascotas_1");
+	By locator_typeStove = By.id("inmueble_tipo_estufa_1");
+	By locator_typeHeater = By.id("inmueble_tipo_calentador_1");
+	By locator_airConditioning = By.id("select_num_aires_acondicionados_1");
+	By locator_terraceArea = By.id("select_zona_terraza_1");
+	By locator_numberTerrace = By.id("select_numero_terraza_1");
+	By locator_builtArea = By.id("inmueble_area_privada_1");
+	By locator_totalArea = By.id("inmueble_area_construida_1");
+	By locator_numberBalcony = By.id("select_numero_balcones_1");
+	By locator_numberDeposits = By.id("select_numero_depositos_1");
+	By locator_deliverDate = By.id("inmueble_fecha_entrega_1");
+	By locator_soldOut = By.id("select_vendido_si_no_1");
+	By locator_typeParking = By.id("select_tipo_parqueadero_1");
+	By locator_unitsAvailable = By.id("select_unidades_disponibles_1");
+	By locator_homeAppliances = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/button");
+	By locator_kiln = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[1]");
+	By locator_extractor = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[2]");
+	By locator_dishwasher = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[3]");
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
@@ -54,6 +85,38 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
 	String directionComplit = "Calle 60 sur#66-63";
+	//Caracteristicas de los tipos de inmuebles
+	String typeProperty = "Apartamento";//Ingrese el tipo de inmueble
+	String nameTypeProperty = "Duplex";//ingrese el nombre del tipo de apartamento
+	String sale = "130000000";// Ingrese el precio 
+	String numberRoom = "3";// Ingrese el numero de habitaciones
+	String numberBath = "2";//Ingrese el numero de baños
+	String numberParking = "1";//Ingrese el numero de parqueaderos
+	String swimning = "No";//Ingrese Si o No si cuenta con piscina
+	String floor = "Baldosa";//Ingrese el tipo de piso
+	String saleManagement = "100000";//Ingrese el precio de la administración 
+	String tvCircuit = "No";//ingrese Si o No si cuenta con circuito cerrado de tv
+	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitación de servicio
+	String serviceBath = "No";//Ingrese Si o No si cuenta con baño de servicio
+	String laundryArea = "No";//Ingrese Si o No si cuenta con zona de labanderia 
+	String fireplace = "No";// Ingrese Si o No si cuenta con chimenea
+	String allowsPets = "Si";// Ingrese Si o No si permite mascotas
+	String typeStove = "Gas";// Ingrese el tipo de estufa 
+	String typeHeater = "Gas";//Ingrese el tipo de calentador 
+	String airConditioning = "No";//Ingrese Si o No si cuenta con aire acondicionado
+	String terraceArea = "No";//Ingrese el Si o No si cuenta con terraza
+	String numberTerrace = "";//Ingrese el numero de terrazas en caso de que tenga
+	String builtArea = "60";//Ingrese el area del inmueble
+	String totalArea = "70";//Ingrese el area total del inmueble
+	String numberBalcony = "0";//Ingrese el numero de valcones
+	String numberDeposits = "0";//ingrese el numero de depositos 
+	String deliverDate = "13122023";//Ingrese la fecha de entrega
+	String soldOut = "";// Ingrese Si o No si se encuentra vendido
+	String typeParking = "Comunal";// Ingrese el tipo de parqueadero
+	String unitsAvailable = "10";//Ingrese las unidades disponibles
+	String kiln = "No";//Ingrese Si o No si cuenta con horno
+	String extractor = "No";//Ingrese Si o No sicuenta con extractor
+	String dishwasher = "No";//Ingrese Si o No si cuenta con lavaplatos
 	
 	public CreateProjectPageConstructora(WebDriver driver) {
 		super(driver);
@@ -138,5 +201,18 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			System.out.println("Error:" +e);
 		} 
 	}
-
+	
+	public void characteristicsProperty() {
+		try {
+			
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: " + e);
+		}catch (TimeoutException e) {
+			System.out.println("Error: " + e);
+		}catch (ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error:" +e);
+		} 
+	}
 }

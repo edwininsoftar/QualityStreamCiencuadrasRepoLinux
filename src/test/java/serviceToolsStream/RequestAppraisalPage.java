@@ -48,7 +48,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_depositPrivate = By.xpath("//*[@id=\"mat-radio-10\"]/label/span[1]/span[2]");
 	By locator_depositExclusive = By.xpath("//*[@id=\"mat-radio-11\"]");
 	By locator_buttonContinue = ByAngular.buttonText("Continuar");
-	//Formulario de facturaci�n
+	//Formulario de facturación
 	By locator_email = By.id("mat-input-9");
 	By locator_typeDocument = By.cssSelector("div[class=\"mat-select-arrow ng-tns-c165-20\"]");
 	By locator_cc = By.xpath("//*[@id=\"mat-option-32\"]/span");
@@ -127,13 +127,13 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_documentNumber = By.id("mat-input-17");
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
-	//Aval�o
+	//Avaluo
 	String appraisalFrom = "Colombia";//Colombia
-	String city = "Bogot�"; //Ingrese la ciudad que desea hacer el avaluo 
+	String city = "Bogotá"; //Ingrese la ciudad que desea hacer el avaluo 
 	//formato de solicitud 
 	String typeProperty = "Casa";//Apartamento, Casa
-	String address = "Calle 128 # 52-46";//Ingrese la direcci�n
-	String addressAdd = "Primer Piso";//complemento de la direcci�n
+	String address = "Calle 128 # 52-46";//Ingrese la dirección
+	String addressAdd = "Primer Piso";//complemento de la dirección
 	String sale = "120000000";//Valor estimado de venta 
 	String zone = "2";// ingrese la zona
 	String enrollment = "12345678"; // ingrese la matricula inmobiliaria
@@ -143,7 +143,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	int deposit = 1;// Ingrese el numero de depositos
 	String typeParking = "Exclusivo"; // Comunal, Privado, Exclusivo
 	String typeDeposit = "Exclusivo"; // Comunal, Privado, Exclusivo
-	//Formulario de facturaci�n
+	//Formulario de facturacion
 	String email = "pruebaciencuadras@yopmail.com"; // Ingrese email
 	String typedocument = "CC";// CC, NIT, CCE, Pasaporte
 	String document = "80427865 "; //Ingrese el numero de documento

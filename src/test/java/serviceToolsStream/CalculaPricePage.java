@@ -124,11 +124,11 @@ public class CalculaPricePage extends BasicWrap{
 	//Listo descarga reporte
 	By locator_report = By.xpath("//*[@id=\"cdk-step-content-0-3\"]/app-generate-report/div/div[2]/div[1]/button");
 	
-	//Formulario ubicaci�n del inmueble
-	String city = "Bogot�"; // Ingrese la ciudad
+	//Formulario ubicacion del inmueble
+	String city = "Bogotá"; // Ingrese la ciudad
 	String address = "Calle 184 # 20-51";// Ingrese la direcci�n 
 	String addressAdd = "Segundo piso";//Ingrese el complemento de la direcci�n
-	//Informaci�n del inmueble
+	//Informacion del inmueble
 	String typeProperty = "Apartamento";//Casa, Apartamento
 	String transactionType = "Arriendo";//Arriendo, Venta
 	String stratum = "3";// estrato: 1,2,3,4,5,6
@@ -148,9 +148,9 @@ public class CalculaPricePage extends BasicWrap{
 	String names = "Sebastian Andres";//Ingrese los nombres
 	String surnames = "Rodiguez Cepeda";//ingrese los apellidos
 	String identityDocument = "CC";//CC,NIT,CE
-	String idNumber = "1057585412";//Ingrese el numero de identificaci�n
+	String idNumber = "1057585412";//Ingrese el numero de identificacion
 	String email = "emaildepagoprueba@yopmail.com";// Ingrese el email 
-	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmaci�n del email
+	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmacion del email
 	String phone = "205814789";// Ingrese el numero de celular sin el numero 3
 	String acceptTerms = "Si";//Si, No //Ingrese si o no si hacepta los terminos 
 	String dataTreatment = "Si";// Si, No // Ingrese si o no si acepta el tratamiento de datos

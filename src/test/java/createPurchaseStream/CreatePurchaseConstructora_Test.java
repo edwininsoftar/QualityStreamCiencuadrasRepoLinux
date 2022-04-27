@@ -14,7 +14,7 @@ public class CreatePurchaseConstructora_Test {
 	public void setUp() throws Exception {
 		createPurchasePageConstructora = new CreatePurchasePageConstructora(driver);
 		driver = createPurchasePageConstructora.chromeDriverConnection();
-		createPurchasePageConstructora.visit("https://qa.ciencuadras.com/"); 
+		createPurchasePageConstructora.visit("https://dev.ciencuadras.com/"); 
 	}
 
 	@After

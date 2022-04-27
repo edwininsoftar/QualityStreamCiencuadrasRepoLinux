@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BasicWrap {
 	 	
@@ -21,11 +22,11 @@ public class BasicWrap {
 		// CREACION DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
 			//Chrome
-			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");
-			driver = new ChromeDriver();
+			//System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");
+			//driver = new ChromeDriver();
 			//Mozilla
-			//System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver");
-			//driver = new FirefoxDriver();
+			System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver");
+			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
 		}

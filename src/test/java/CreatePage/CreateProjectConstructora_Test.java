@@ -14,7 +14,7 @@ public class CreateProjectConstructora_Test {
 	public void setUp() throws Exception {
 		CreateProjectBuilder = new CreateProjectPageConstructora(driver);
 		driver = CreateProjectBuilder.chromeDriverConnection();
-		CreateProjectBuilder.visit("https://qa.ciencuadras.com/");
+		CreateProjectBuilder.visit("https://dev.ciencuadras.com/");
 	}
 
 	@After

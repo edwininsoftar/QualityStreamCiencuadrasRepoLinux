@@ -3,6 +3,7 @@ package CreatePage;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 
 import Base.BasicWrap;
@@ -10,12 +11,12 @@ import io.netty.handler.timeout.TimeoutException;
 
 public class CreateProjectPageConstructora extends BasicWrap{
 	//localizadores de logueo hasta llegar a crear un proyecto 
-	By locator_enterButton = By.linkText("INGRESAR");
-	By locator_user = By.cssSelector("input[formcontrolname=\"username\"]");
+	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
+	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
-	By locator_logIn = By.xpath("//*[@id=\"mat-dialog-0\"]/lib-cc-login/div/div/div[3]/form/button/span");
+	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
 	By locator_menu = By.cssSelector("div[class=\"circle-name\"]");
-	By locator_projectsPublished = By.linkText("Proyectos publicados");
+	By locator_publishedProperty = By.linkText("Proyectos publicados");
 	By locator_createProject = By.linkText("CREAR PROYECTO");
 	//localizadores para crear el proyecto
 	By locator_nameProject = By.id("nombreProyecto");
@@ -25,7 +26,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_Construction = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[3]");
 	By locator_immediateDelivery = By.xpath("//*[@id=\"select_etapa_cabecera\"]/option[4]");
 	
-	String user = "qa.constructorahogar21@yopmail.com";//usuario constructora
+	String username = "ciencuadrasconstructora12@yopmail.com";//usuario constructora
 	String password = "LeonO1O1*"; // contraseña
 	String nameProject = "Oasis"; // nombre del proyecto
 	String stage = "Sobre plano"; //etapa del proyecto puede ser "seleccione, Sobre plano, Construcion, Entrega inmediata"
@@ -38,22 +39,21 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	public void logIn() {
 		try{
 			Thread.sleep(8000);
-			click(locator_enterButton);
-			Thread.sleep(8000);
-			type(user, locator_user);
+			click(locator_into);
+			type(username, locator_username);
 			type(password, locator_password);
-			click(locator_logIn);
-			Thread.sleep(6000);
+			click(locator_login);
+			Thread.sleep(8000);
 			click(locator_menu);
-			click(locator_projectsPublished);
+			click(locator_publishedProperty);
 			click(locator_createProject);
-			
-		}
-		catch (NoSuchElementException e) {
+		}catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
-		} catch (TimeoutException e) {
+		}catch (TimeoutException e) {
 			System.out.println("Error: " + e);
-		} catch (Exception e) {
+		}catch (ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error:" +e);
 		} 
 	}

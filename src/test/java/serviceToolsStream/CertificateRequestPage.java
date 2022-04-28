@@ -46,6 +46,7 @@ public class CertificateRequestPage extends BasicWrap{
 					driver.switchTo().window(actual);
 				}
 			}
+			Thread.sleep(10000);
 			WebElement zn = driver.findElement(locator_zoneSelect);
 			Select sel = new Select(zn);
 			sel.selectByVisibleText(zone);
@@ -54,7 +55,7 @@ public class CertificateRequestPage extends BasicWrap{
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
 			driver.switchTo().defaultContent();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			click(locator_buttonContinue);
 		}catch(NoSuchElementException e) {
 			System.out.println("Error: "+e);

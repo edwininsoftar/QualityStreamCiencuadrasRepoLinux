@@ -13,7 +13,7 @@ public class CertificateRequest_Test {
 	public void setUp() throws Exception {
 		certificateRequestPage = new CertificateRequestPage(driver);
 		driver = certificateRequestPage.chromeDriverConnection();
-		certificateRequestPage.visit("https://dev.ciencuadras.com/"); 
+		certificateRequestPage.visit("https://qa.ciencuadras.com/"); 
 	}
 
 	@After

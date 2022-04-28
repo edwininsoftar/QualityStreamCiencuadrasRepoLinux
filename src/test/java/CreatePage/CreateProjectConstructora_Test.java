@@ -26,6 +26,9 @@ public class CreateProjectConstructora_Test {
 	public void test() {
 		CreateProjectBuilder.logIn();
 		CreateProjectBuilder.publicProject();
+		CreateProjectBuilder.characteristicsProperty();
+		CreateProjectBuilder.salesRoom();
+		CreateProjectBuilder.stages();
 	}
 
 }

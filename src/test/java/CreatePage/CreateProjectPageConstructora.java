@@ -63,10 +63,10 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_soldOut = By.id("select_vendido_si_no_1");
 	By locator_typeParking = By.id("select_tipo_parqueadero_1");
 	By locator_unitsAvailable = By.id("select_unidades_disponibles_1");
-	By locator_homeAppliances = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/button");
-	By locator_kiln = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[1]");
-	By locator_extractor = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[2]");
-	By locator_dishwasher = By.xpath("//*[@id=\"btn-group-#select_mas_electrodomesticos_1\"]/div/ul/li[3]");
+	By locator_homeAppliances = By.xpath("/html/body/div[3]/div/form/div/div[1]/div[1]/div[1]/div[10]/div/div[33]/div/div/div/button");
+	By locator_kiln = By.xpath("/html/body/div[3]/div/form/div/div[1]/div[1]/div[1]/div[10]/div/div[33]/div/div/div/div/ul/li[1]");
+	By locator_extractor = By.xpath("/html/body/div[3]/div/form/div/div[1]/div[1]/div[1]/div[10]/div/div[33]/div/div/div/div/ul/li[2]");
+	By locator_dishwasher = By.xpath("/html/body/div[3]/div/form/div/div[1]/div[1]/div[1]/div[10]/div/div[33]/div/div/div/div/ul/li[3]");
 	// localizadores sala de ventas
 	By locator_nameRoom = By.id("nombre_sala_1");
 	By locator_roomAddress = By.id("sala_direccion_1");
@@ -80,6 +80,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_closingDate = By.id("finalizacion_etapa_1");
 	//localizadores informacion adicional
 	By locator_additionalInformation = By.id("proyecto-info_adicional");
+	By locator_buttonSave = By.id("btn_guardar_publicador");
 	
 	
 	//Login
@@ -119,18 +120,18 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String typeHeater = "Gas";//Ingrese el tipo de calentador 
 	String airConditioning = "No";//Ingrese Si o No si cuenta con aire acondicionado
 	String terraceArea = "No";//Ingrese el Si o No si cuenta con terraza
-	String numberTerrace = "";//Ingrese el numero de terrazas en caso de que tenga
+	String numberTerrace = "0";//Ingrese el numero de terrazas en caso de que tenga
 	String builtArea = "60";//Ingrese el area del inmueble
 	String totalArea = "70";//Ingrese el area total del inmueble
 	String numberBalcony = "0";//Ingrese el numero de valcones
 	String numberDeposits = "0";//ingrese el numero de depositos 
 	String deliverDate = "13122023";//Ingrese la fecha de entrega
-	String soldOut = "";// Ingrese Si o No si se encuentra vendido
+	String soldOut = "No";// Ingrese Si o No si se encuentra vendido
 	String typeParking = "Comunal";// Ingrese el tipo de parqueadero
 	String unitsAvailable = "10";//Ingrese las unidades disponibles
-	String kiln = "No";//Ingrese Si o No si cuenta con horno
+	String kiln = "Si";//Ingrese Si o No si cuenta con horno
 	String extractor = "No";//Ingrese Si o No sicuenta con extractor
-	String dishwasher = "No";//Ingrese Si o No si cuenta con lavaplatos
+	String dishwasher = "Si";//Ingrese Si o No si cuenta con lavaplatos
 	// datos de sala de ventas
 	String nameRoom = "sala 1";//nombre de la sala
 	String roomAddress = "calle 12 # 5-05"; //direccion de la sala
@@ -302,17 +303,11 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		    Select sel26 = new Select(zonTer);
 		    sel26.selectByVisibleText(terraceArea);
 		    Thread.sleep(3000);
-		    WebElement numTer = driver.findElement(locator_numberTerrace);
-		    Select sel27 = new Select(numTer);
-		    sel27.selectByVisibleText(numberTerrace);
+		    type(numberTerrace, locator_numberTerrace);
 		    Thread.sleep(3000);
-		    WebElement areCon = driver.findElement(locator_builtArea);
-		    Select sel28 = new Select(areCon);
-		    sel28.selectByVisibleText(builtArea);
+		    type(builtArea, locator_builtArea);
 		    Thread.sleep(3000);
-		    WebElement areTot = driver.findElement(locator_totalArea);
-		    Select sel29 = new Select(areTot);
-		    sel29.selectByVisibleText(totalArea);
+		    type(totalArea, locator_totalArea);
 		    Thread.sleep(3000);
 		    WebElement numBal = driver.findElement(locator_numberBalcony);
 		    Select sel30 = new Select(numBal);
@@ -322,8 +317,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		    Select sel31 = new Select(numDep);
 		    sel31.selectByVisibleText(numberDeposits);
 		    Thread.sleep(3000);
-		    WebElement fecEnt = driver.findElement(locator_deliverDate);
-		    fecEnt.sendKeys(deliverDate);
+		    type(deliverDate, locator_deliverDate);
 		    Thread.sleep(3000);
 		    WebElement ven = driver.findElement(locator_soldOut);
 		    Select sel32 = new Select(ven);
@@ -333,11 +327,68 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		    Select sel33 = new Select(tipPar);
 		    sel33.selectByVisibleText(typeParking);
 		    Thread.sleep(3000);
-		    WebElement uniDis = driver.findElement(locator_unitsAvailable);
-		    Select sel34 = new Select(uniDis);
-		    sel34.selectByVisibleText(unitsAvailable);
-		   
-
+		    type(unitsAvailable, locator_unitsAvailable);
+		    Thread.sleep(5000);
+		    if(kiln.equals("Si") || extractor.equals("Si") || dishwasher.equals("Si")) {
+		    	click(locator_homeAppliances);
+		    	 if(kiln.equals("Si")) {
+				    click(locator_kiln);
+				 }
+				 if(extractor.equals("Si")) {
+					click(locator_extractor);
+				 }
+				 if(dishwasher.equals("Si")) {
+					click(locator_dishwasher);
+				 }
+		    }
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: " + e);
+		}catch (TimeoutException e) {
+			System.out.println("Error: " + e);
+		}catch (ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error:" +e);
+		} 
+	}
+	
+	public void salesRoom() {
+		try {
+			Thread.sleep(3000);
+			type(nameRoom,locator_nameRoom);
+			Thread.sleep(3000);
+			type(roomAddress,locator_roomAddress);
+			Thread.sleep(3000);
+			type(callContactNumber,locator_callContactNumber);
+			Thread.sleep(3000);
+			type(emailRoom,locator_emailRoom);
+			Thread.sleep(3000);
+			type(whatsappContactNumber,locator_whatsappContactNumber);
+			Thread.sleep(3000);
+			type(seller, locator_seller);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: " + e);
+		}catch (TimeoutException e) {
+			System.out.println("Error: " + e);
+		}catch (ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error:" +e);
+		} 
+	}
+	
+	public void stages() {
+		try {
+			Thread.sleep(3000);
+			type(stage1, locator_stage1);
+			Thread.sleep(3000);
+			type(openingDate,locator_openingDate);
+			Thread.sleep(3000);
+			type(closingDate, locator_closingDate);
+			Thread.sleep(3000);
+			type(additionalInformation, locator_additionalInformation);
+			Thread.sleep(3000);
+			click(locator_buttonSave);
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {

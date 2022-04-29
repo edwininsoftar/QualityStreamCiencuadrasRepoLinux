@@ -52,6 +52,7 @@ public class RegisterPage extends BasicWrap {
 	
 	public void registerRoll() throws InterruptedException {
 		try {
+			Thread.sleep(8000);
 			click(locator_into);
 			click(locator_register);
 			if (roll.equals("Persona") || roll.equals("Agente")) {

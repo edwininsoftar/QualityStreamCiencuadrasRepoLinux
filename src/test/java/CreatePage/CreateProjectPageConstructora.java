@@ -245,8 +245,8 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		    Select sel12 = new Select(numHab);
 		    sel12.selectByVisibleText(numberRoom);
 		    Thread.sleep(3000);
-		    WebElement numBañ = driver.findElement(locator_numberBath);
-		    Select sel13 = new Select(numBañ);
+		    WebElement numBath = driver.findElement(locator_numberBath);
+		    Select sel13 = new Select(numBath);
 		    sel13.selectByVisibleText(numberBath);
 		    Thread.sleep(3000);
 		    WebElement numPar = driver.findElement(locator_numberParking);
@@ -271,8 +271,8 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		    Select sel18 = new Select(habSer);
 		    sel18.selectByVisibleText(ServiceRoom);
 		    Thread.sleep(3000);
-		    WebElement bañSer = driver.findElement(locator_serviceBath);
-		    Select sel19 = new Select(bañSer);
+		    WebElement bathSer = driver.findElement(locator_serviceBath);
+		    Select sel19 = new Select(bathSer);
 		    sel19.selectByVisibleText(serviceBath);
 		    Thread.sleep(3000);
 		    WebElement zonLav = driver.findElement(locator_laundryArea);

@@ -109,7 +109,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	//mis publicaciones
 	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
 
-	String username = "constructoraciencuadras11@yopmail.com";//constructoraciencuadras12@yopmail.com
+	String username = "constructoraciencuadras11@yopmail.com";//constructoraciencuadras12@yopmail.com 
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
@@ -120,16 +120,16 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	int featured = 1;
 	int promoted = 1;
 	int online = 1;
-	// Datos de facturación
+	// Datos de facturaciï¿½n
 	String Nit = "900457893";// ingrese el nit
-	String dv = "7";// ingrese el digito de verificación
-	String city = "Bogotá";
-	String address = "Calle 128 # 52-53";// ingrese la direción
+	String dv = "7";// ingrese el digito de verificaciï¿½n
+	String city = "BogotÃ¡";
+	String address = "Calle 128 # 52-53";// ingrese la direciï¿½n
 	String email = "ciencuadras4@yopmail.com";
 	String confirmEmail = "ciencuadras4@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturaciï¿½n electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
 	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor,NoResponsable
@@ -145,7 +145,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta
 	String monthCard = "1225";// Ingrese el mes de la tarjeta
-	String yearCard = "25";// Ingrese el año de la tarjeta
+	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata

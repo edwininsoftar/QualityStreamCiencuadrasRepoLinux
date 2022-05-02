@@ -19,7 +19,7 @@ public class BasicWrap {
 			this.driver = driver; 
 		}
 		
-		// CREACI�N DE INSTACIA DEL NAVEGADOR CHROME
+		// CREACION DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
 			//Chrome
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");

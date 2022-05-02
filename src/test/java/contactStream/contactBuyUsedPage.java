@@ -3,7 +3,6 @@ package contactStream;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,7 +51,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	By locator_Consult = By.id("btn-submit-home");
 	By locator_clickForm = By.xpath("/html/body/div[3]/div/section/div/div[3]/div/div[5]/table/tbody/tr[2]/td[5]");
 
-	String resultsContact = "Arrendar inmueble"; // para enviar el contactar desde Ofertas, Compra usado, Arrendar inmueble
+	String resultsContact = "Compra usado"; // para enviar el contactar desde Ofertas, Compra usado, Arrendar inmueble
 	String Ciudad = "Tabio"; // ciudad para utilizar en el buscador
 	String Contact = "Contactar1"; // Contactar para las primeras 4 card de inmuebles usados
 									// "Contactar1,Contactar2,Contactar3,Contactar4"
@@ -61,7 +60,7 @@ public class contactBuyUsedPage extends BasicWrap {
 	String name = "fabian corrales"; // Nombre o razon social
 	String email = "leonardo2121@yopmail.com";// correo electronico
 	String cellPhone = "3123454345";// celular
-	String user = "qa.cieninmuebles21@yopmail.com";// usuario de constructora
+	String user = "qa.cieninmuebles21@yopmail.com";// usuario de inmobiliaria
 	String password = "Ciencuadras21*";// contraseña
 	String startDate = "2022-04-01"; // fecha inicio de reporte
 	String endDate = "2022-04-30";// fecha de fin de reporte
@@ -83,9 +82,7 @@ public class contactBuyUsedPage extends BasicWrap {
 			if (resultsContact.equals("Arrendar inmueble")) {
 				click(locator_leaseProperty);
 			}
-
 			Thread.sleep(8000);
-			WebElement ciudad = driver.findElement(locator_search);
 			type(Ciudad, locator_search);
 			Thread.sleep(8000);
 			click(locator_city);
@@ -114,17 +111,13 @@ public class contactBuyUsedPage extends BasicWrap {
 			}
 			if (letter.equals("letter4")) {
 				click(locator_letter4);
-			} else {
-				System.out.println("no se envio el contactar");
-			}
+			} 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
-			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
+			System.out.println("Error:"+ e);
 		}
 
 	}
@@ -148,14 +141,12 @@ public class contactBuyUsedPage extends BasicWrap {
 			click(locator_x);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
-			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+			System.out.println("Error:" +e);
+		} 
 	}
 
 	public void userRealEstate() throws InterruptedException {
@@ -183,14 +174,12 @@ public class contactBuyUsedPage extends BasicWrap {
 			System.out.println("Numero de contactos registrados: " + numText);
 
 		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
+			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones del contactar");
-		}
+		} 
 
 	}
 

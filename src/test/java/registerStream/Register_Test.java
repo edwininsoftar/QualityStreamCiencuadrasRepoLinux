@@ -9,7 +9,7 @@ public class Register_Test {
 	
 	private WebDriver driver;
 	RegisterPage registerPage;
- 
+
 	@Before
 	public void setUp() throws Exception {
 		registerPage = new RegisterPage(driver);
@@ -19,7 +19,7 @@ public class Register_Test {
 	
 	@After
 	public void tearDown() throws Exception {
-		//driver.quit(); 
+		//driver.quit();
 	}
 
 	@Test

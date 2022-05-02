@@ -29,6 +29,8 @@ public class CreateProjectConstructora_Test {
 		CreateProjectBuilder.characteristicsProperty();
 		CreateProjectBuilder.salesRoom();
 		CreateProjectBuilder.stages();
+		CreateProjectBuilder.load();
+		CreateProjectBuilder.validation();
 	}
 
 }

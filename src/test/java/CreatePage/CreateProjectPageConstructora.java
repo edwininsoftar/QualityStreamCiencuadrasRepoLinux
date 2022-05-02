@@ -1,7 +1,9 @@
 package CreatePage;
 
+import java.io.File;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
@@ -81,25 +83,38 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	//localizadores informacion adicional
 	By locator_additionalInformation = By.id("proyecto-info_adicional");
 	By locator_buttonSave = By.id("btn_guardar_publicador");
-	
+	//Imagenes del inmueble
+	By locator_imgProyect = By.id("file_cabecera");
+	By locator_uploadFileProject = By.xpath("//*[@id=\"container_images_cabecera\"]/div[4]/div[4]/div[2]/a");
+	By locator_imgProperty = By.id("file_inmueblestipo_1");
+	By locator_uploadFileProperty = By.xpath("//*[@id=\"container_images_tipoinmueble_1\"]/div/div[4]/div[2]/a");
+	By locator_imgLogoProperty = By.id("file_logo_proyecto1");
+	By locator_uploadFileLogoProperty = By.xpath("//*[@id=\"container_logo_proyecto1\"]/div/div[4]/div[2]/a");
+	By locator_coverPhoto = By.name("fotoPortada_project");
+	By locator_save = By.id("btn_editar_publicador");
+	// Verificación
+	By locator_nameProjet = By.linkText("OASIS - TABIO");
+	By locator_area = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[2]");
+	By locator_room = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[4]");
+	By locator_bath = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[5]");
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
-	String password = "LeonO1O1*"; // contraseÃ±a
+	String password = "LeonO1O1*"; // contraseña
 	//Crear nuevo proyecto
 	String nameProject = "Oasis"; // nombre del proyecto
 	String stage = "Sobre Plano"; //etapa del proyecto puede ser "seleccione, Sobre Plano, Construcion, Entrega Inmediata"
 	String projectPhase = "Venta";//Ingrese Venta, PreVenta, Oferta Terminada, Lanzamiento
 	String straum = "3";//Ingrese 1,2,3,4,5 o 6 
 	String department = "Cundinamarca";// Ingrese el departamento
-	String city = "BogotÃ¡";//ingrese la ciudad
-	String location = "Ciudad BolÃ­var";// Ingrese el volor de la localidad que decea segun las opciones html
-	String neighborhood = "Madelena";//Ingrese el barrio 
+	String city = "Tabio";//ingrese la ciudad
+	String location = "Tabio";// Ingrese el volor de la localidad que decea segun las opciones html
+	String neighborhood = "El Alcaparro";//Ingrese el barrio 
 	String direction = "Si";//Ingrese Si y No
-	String date = "06062022";// Ingrese la fecha 
+	String date = "02052022";// Ingrese la fecha 
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
-	String directionComplit = "Calle 60 sur#66-63";
+	String directionComplit = "Calle 12 # 10-5";
 	//Caracteristicas de los tipos de inmuebles
 	String typeProperty = "Apartamento";//Ingrese el tipo de inmueble
 	String nameTypeProperty = "Duplex";//ingrese el nombre del tipo de apartamento
@@ -109,10 +124,10 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String numberParking = "1";//Ingrese el numero de parqueaderos
 	String swimning = "No";//Ingrese Si o No si cuenta con piscina
 	String floor = "Baldosa";//Ingrese el tipo de piso
-	String valueManagement = "100000";//Ingrese el precio de la administraciÃ³n 
+	String valueManagement = "100000";//Ingrese el precio de la administración 
 	String tvCircuit = "No";//ingrese Si o No si cuenta con circuito cerrado de tv
-	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitaciÃ³n de servicio
-	String serviceBath = "No";//Ingrese Si o No si cuenta con baÃ±o de servicio
+	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitación de servicio
+	String serviceBath = "No";//Ingrese Si o No si cuenta con baño de servicio
 	String laundryArea = "No";//Ingrese Si o No si cuenta con zona de lavanderia 
 	String fireplace = "No";// Ingrese Si o No si cuenta con chimenea
 	String allowsPets = "Si";// Ingrese Si o No si permite mascotas
@@ -137,14 +152,14 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String roomAddress = "calle 12 # 5-05"; //direccion de la sala
 	String callContactNumber = "6013457689";//NÃºmero para contacto por llamada
 	String emailRoom = "sala1@gmail.com";//Email sala
-	String whatsappContactNumber = "3124567890";//NÃºmero para contacto por whatsapp
+	String whatsappContactNumber = "3124567890";//Numero para contacto por whatsapp
 	String seller = "luis carlos"; //Vendedor
 	//datos de etapa
 	String stage1 = "En construccion";//Nombre etapa
-	String openingDate = "12012022";//Fecha apertura
+	String openingDate = "12062022";//Fecha apertura
 	String closingDate = "07122022";//Fecha cierre
 	//datos informacion adicional
-	String additionalInformation = "Buena ubicaciÃ³n";//Informacion adicional
+	String additionalInformation = "Buena ubicación";//Informacion adicional
 			
 	
 	public CreateProjectPageConstructora(WebDriver driver) {
@@ -161,6 +176,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			click(locator_login);
 			Thread.sleep(8000);
 			click(locator_menu);
+			Thread.sleep(5000);
 			click(locator_publishedProperty);
 			click(locator_createProject);
 		}catch (NoSuchElementException e) {
@@ -389,6 +405,9 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			type(additionalInformation, locator_additionalInformation);
 			Thread.sleep(3000);
 			click(locator_buttonSave);
+			Thread.sleep(5000);
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {
@@ -398,5 +417,80 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		}catch (Exception e) {
 			System.out.println("Error:" +e);
 		} 
+	}
+	
+	public void load()  {
+		try {
+			File file1 = new File("./src/test/resources/img/portada.png");
+			File file2 = new File("./src/test/resources/img/arriendo.png");
+			File file3 = new File("./src/test/resources/img/Screenshot.png");
+			String phat1 = file1.getAbsolutePath();
+			String phat2 = file2.getAbsolutePath();
+			String phat3 = file3.getAbsolutePath();
+			
+			driver.findElement(locator_imgProyect).sendKeys(phat1);
+			Thread.sleep(8000);
+			click(locator_uploadFileProject);
+			Thread.sleep(8000);
+			click(locator_coverPhoto);
+			Thread.sleep(8000);
+			driver.findElement(locator_imgProperty).sendKeys(phat2);
+			Thread.sleep(8000);
+			click(locator_uploadFileProperty);
+			Thread.sleep(8000);
+			driver.findElement(locator_imgLogoProperty).sendKeys(phat3);
+			Thread.sleep(8000);
+			click(locator_uploadFileLogoProperty);
+			Thread.sleep(8000);
+			click(locator_save);
+			Thread.sleep(8000);
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void validation() {
+		try {
+			Thread.sleep(8000);
+			click(locator_nameProjet);
+			Thread.sleep(8000);
+			String endArea = driver.findElement(locator_area).getText();
+			String sEndArea = endArea.substring(0,2);
+			if(builtArea.equals(sEndArea)) {
+				System.out.println("El area concuerda con el area ingresados: "+sEndArea);
+			}else {
+				System.out.println("El area consultada no concuerda con la ingresada");
+			}
+			String endRoom = driver.findElement(locator_room).getText();
+			String sEndRoom = endRoom.substring(0,1);
+			if(numberRoom.equals(sEndRoom)) {
+				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndRoom);
+			}else {
+				System.out.println("El número de habitaciones consultadas no concuerda con los ingresadas");
+			}
+			String endBath = driver.findElement(locator_bath).getText();
+			String sEndBath = endBath.substring(0,1);
+			if(numberBath.equals(sEndBath)) {
+				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
+			}else {
+				System.out.println("El número de baños consultados no concuerda con los ingresados");
+			}
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }

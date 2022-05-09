@@ -17,7 +17,7 @@ import io.netty.handler.timeout.TimeoutException;
 public class RegisterPage extends BasicWrap {
 
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_register = By.linkText("Regístrate");
+	By locator_register = By.linkText("Regï¿½strate");
 	By locator_persona = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[2]");
 	By locator_agente = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[2]");
 	By locator_inmobiliaria = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[2]");
@@ -40,9 +40,9 @@ public class RegisterPage extends BasicWrap {
 	String typeDocument = "CC";// NIT, CC
 	String name = "Leidy Yurani Villamizar";// Nombre o razon social
 	String email = "logininconstructora1@yopmail.com";//persona:loginpersona3@yopmail.com, Agente:loginagente3@yopmail.com, Inmobiliaria:logininmobiliaria2@yopmail.com, Constructora:logininconstructora2@yopmail.com  
-	String password = "@Password13";// contraseña y confirmación de contraseña
-	String identification = "900584789";// Numero de identificación o Nit 900584789
-	String DV = "8";// digito de verificación obligatorio si el tipo de documento es NIT
+	String password = "@Password13";// contraseï¿½a y confirmaciï¿½n de contraseï¿½a
+	String identification = "900584789";// Numero de identificaciï¿½n o Nit 900584789
+	String DV = "8";// digito de verificaciï¿½n obligatorio si el tipo de documento es NIT
 
 	public RegisterPage(WebDriver driver) {
 		super(driver);
@@ -51,7 +51,9 @@ public class RegisterPage extends BasicWrap {
 		
 	public void registerRoll() throws InterruptedException {
 		try {
+			Thread.sleep(3000);
 			click(locator_into);
+			Thread.sleep(3000);
 			click(locator_register);
 			if (roll.equals("Persona") || roll.equals("Agente")) {
 				if (roll.equals("Persona")) {

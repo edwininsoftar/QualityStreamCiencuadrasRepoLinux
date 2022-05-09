@@ -113,10 +113,10 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	
 	//Flujo crear rol Agente
 	String username = "agenteciencuadras1@yopmail.com";
-	String password = "@Contrase�a112";
+	String password = "@Contraseña112";
 	//Publicaci�n de un inmueble
 	String registration = "45859674";// Ingrese la matricula inmobiliaria 
-	String department = "Boyac�";// ingrese el departamento
+	String department = "Boyacá";// ingrese el departamento
 	String city = "Sogamoso";//Ingrese la ciudad
 	String location = "Sogamoso";//Ingrese la localidad
 	String neighborhood = "UPTC";//Ingrese el barrio 
@@ -154,7 +154,7 @@ public class CreatePropertyPageAgente extends BasicWrap{
 	String valueSale = "130000000";//Ingrese el valor del inmueble
 	String buttonAdministration = "Si";//Ingrese Si o No
 	String managementValue = "100000";//Ingrese el valor de la administraci�n 
-	String code = "28";//Ingrese el codigo
+	String code = "50";//Ingrese el codigo
 	String buttonBrandNew = "No";//Ingrese Si o No
 	String antiquity = "3";//Ingrese los a�os de antiguedad
 	String floor = "1";//Ingrese el piso 
@@ -465,16 +465,16 @@ public class CreatePropertyPageAgente extends BasicWrap{
 			String endroom = driver.findElement(locator_endRoom).getText();
 			String sEndroom = endroom.substring(0,1);
 			if(room.equals(sEndroom)) {
-				System.out.println("El n�mero de habitaciones concuerda con las ingresadas: "+sEndroom);
+				System.out.println("El numero de habitaciones concuerda con las ingresadas: "+sEndroom);
 			}else {
-				System.out.println("El n�mero de habitaciones consultados no concuerda con los ingresados");
+				System.out.println("El numero de habitaciones consultados no concuerda con los ingresados");
 			}
 			String endBath = driver.findElement(locator_endBath).getText();
 			String sEndBath = endBath.substring(0,1);
 			if(bath.equals(sEndBath)) {
-				System.out.println("El n�mero de Ba�os concuerda con los ingresados: "+sEndBath);
+				System.out.println("El numero de Baños concuerda con los ingresados: "+sEndBath);
 			}else {
-				System.out.println("El n�mero de ba�os consultados no concuerda con los ingresados");
+				System.out.println("El numero de baños consultados no concuerda con los ingresados");
 			}
 			String endM2 = driver.findElement(locator_endM2).getText();
 			String sEndM2 = endM2.substring(0,2);

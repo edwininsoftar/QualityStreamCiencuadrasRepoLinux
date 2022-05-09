@@ -54,7 +54,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	By locator_buttonOnline = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[3]/div/app-product-card/div/div[2]/div/div/button[2]/span");
 	By locator_buttonShoppingCart = By.xpath("//*[@id=\"products-base\"]/app-header/div/nav/button");
 	By locator_buttonPay = By.cssSelector("button[class=\"button secondary rounded block\"]");
-	//datos de facturación
+	//datos de facturaciï¿½n
 	By locator_nitNumber = By.id("mat-input-0");
 	By locator_dv = By.id("mat-input-7");
 	By locator_city = By.id("mat-input-2");
@@ -120,8 +120,8 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 
 
 	// Flujo inmobiliaria
-	String username = "inmobiliariaciencuadras11@yopmail.com";//inmobiliariaciencuadras12@yopmail.com
-	String password = "100Cuadras%";
+	String username = "pedro21inmuebles@yopmail.com";//inmobiliariaciencuadras12@yopmail.com
+	String password = "100Cuadras*";
 	//Formulario escoge tu plan ideal ver planes
 	String plan = "PlanBasico";//PlanBasico, PlanBasePlus ,PlanS, PlanM, PlanL
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses
@@ -132,15 +132,15 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	int featured = 1;
 	int promoted = 1;
 	int online = 1;
-	//datos de faturación 
+	//datos de faturaciï¿½n 
 	String Nit = "900457893";// ingrese el nit
-	String dv = "7";// ingrese el digito de verificación
-	String city = "Bogotá";
-	String address = "Calle 128 # 52-53";// ingrese la direción
-	String confirmEmail = "inmobiliariaciencuadras10@yopmail.com";
+	String dv = "7";// ingrese el digito de verificaciï¿½n
+	String city = "Bogotï¿½";
+	String address = "Calle 128 # 52-53";// ingrese la direciï¿½n
+	String confirmEmail = "pedro21inmuebles@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturaciï¿½n electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
 	String fiscalResponsibility = "AgenteRetenedor";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
@@ -156,7 +156,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
 	String monthCard = "1225";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata

@@ -92,7 +92,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_uploadFileLogoProperty = By.xpath("//*[@id=\"container_logo_proyecto1\"]/div/div[4]/div[2]/a");
 	By locator_coverPhoto = By.name("fotoPortada_project");
 	By locator_save = By.id("btn_editar_publicador");
-	// Verificación
+	// Verificaciï¿½n
 	By locator_nameProjet = By.linkText("OASIS - TABIO");
 	By locator_area = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[2]");
 	By locator_room = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[4]");
@@ -100,7 +100,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
-	String password = "LeonO1O1*"; // contraseña
+	String password = "LeonO1O1*"; // contraseï¿½a
 	//Crear nuevo proyecto
 	String nameProject = "Oasis"; // nombre del proyecto
 	String stage = "Sobre Plano"; //etapa del proyecto puede ser "seleccione, Sobre Plano, Construcion, Entrega Inmediata"
@@ -111,7 +111,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String location = "Tabio";// Ingrese el volor de la localidad que decea segun las opciones html
 	String neighborhood = "El Alcaparro";//Ingrese el barrio 
 	String direction = "Si";//Ingrese Si y No
-	String date = "02052022";// Ingrese la fecha 
+	String date = "10052022";// Ingrese la fecha 
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
 	String directionComplit = "Calle 12 # 10-5";
@@ -124,10 +124,10 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String numberParking = "1";//Ingrese el numero de parqueaderos
 	String swimning = "No";//Ingrese Si o No si cuenta con piscina
 	String floor = "Baldosa";//Ingrese el tipo de piso
-	String valueManagement = "100000";//Ingrese el precio de la administración 
+	String valueManagement = "100000";//Ingrese el precio de la administraciï¿½n 
 	String tvCircuit = "No";//ingrese Si o No si cuenta con circuito cerrado de tv
-	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitación de servicio
-	String serviceBath = "No";//Ingrese Si o No si cuenta con baño de servicio
+	String ServiceRoom = "No";//Ingrese Si o No si cuenta con habitaciï¿½n de servicio
+	String serviceBath = "No";//Ingrese Si o No si cuenta con baï¿½o de servicio
 	String laundryArea = "No";//Ingrese Si o No si cuenta con zona de lavanderia 
 	String fireplace = "No";// Ingrese Si o No si cuenta con chimenea
 	String allowsPets = "Si";// Ingrese Si o No si permite mascotas
@@ -159,7 +159,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String openingDate = "12062022";//Fecha apertura
 	String closingDate = "07122022";//Fecha cierre
 	//datos informacion adicional
-	String additionalInformation = "Buena ubicación";//Informacion adicional
+	String additionalInformation = "Buena ubicaciï¿½n";//Informacion adicional
 			
 	
 	public CreateProjectPageConstructora(WebDriver driver) {
@@ -472,16 +472,16 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			String endRoom = driver.findElement(locator_room).getText();
 			String sEndRoom = endRoom.substring(0,1);
 			if(numberRoom.equals(sEndRoom)) {
-				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndRoom);
+				System.out.println("El nï¿½mero de habitaciones concuerda con las ingresadas: "+sEndRoom);
 			}else {
-				System.out.println("El número de habitaciones consultadas no concuerda con los ingresadas");
+				System.out.println("El nï¿½mero de habitaciones consultadas no concuerda con los ingresadas");
 			}
 			String endBath = driver.findElement(locator_bath).getText();
 			String sEndBath = endBath.substring(0,1);
 			if(numberBath.equals(sEndBath)) {
-				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
+				System.out.println("El nï¿½mero de Baï¿½os concuerda con los ingresados: "+sEndBath);
 			}else {
-				System.out.println("El número de baños consultados no concuerda con los ingresados");
+				System.out.println("El nï¿½mero de baï¿½os consultados no concuerda con los ingresados");
 			}
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);

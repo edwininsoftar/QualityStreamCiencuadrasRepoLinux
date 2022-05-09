@@ -76,8 +76,8 @@ public class CreatePurchasePageAgente extends BasicWrap{
 
 	
 	//FLujo Agente										
-	String username = "agenteciencuadras12@yopmail.com";//agenteciencuadras13@yopmail.com
-	String password = "@Contraseña112";
+	String username = "agente22@yopmail.com";//agenteciencuadras13@yopmail.com
+	String password = "100Cuadras*";
 	//Escoge tu plan ideal
 	String plan = "PlanXS";//PlanXS, PlanS
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses
@@ -98,7 +98,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
 	String monthCard = "1225";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
@@ -113,6 +113,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 		try {
 			Thread.sleep(8000);
 			click(locator_into);
+			Thread.sleep(8000);
 			type(username, locator_username);
 			type(password, locator_password);
 			click(locator_login);

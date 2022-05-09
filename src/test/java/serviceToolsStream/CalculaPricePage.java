@@ -126,7 +126,7 @@ public class CalculaPricePage extends BasicWrap{
 	
 	//Formulario ubicacion del inmueble
 	String city = "Bogotá"; // Ingrese la ciudad
-	String address = "Calle 184 # 20-51";// Ingrese la direcci�n 
+	String address = "Calle 170 # 40-05";// Ingrese la direcci�n 
 	String addressAdd = "Segundo piso";//Ingrese el complemento de la direcci�n
 	//Informacion del inmueble
 	String typeProperty = "Apartamento";//Casa, Apartamento

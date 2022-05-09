@@ -109,8 +109,8 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	//mis publicaciones
 	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
 
-	String username = "constructoraciencuadras11@yopmail.com";//constructoraciencuadras12@yopmail.com 
-	String password = "100Cuadras%";
+	String username = "constructora_oasis21@yopmail.com";//constructoraciencuadras12@yopmail.com 
+	String password = "LeonO1O1*";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
 	// producctos adicionales
@@ -126,7 +126,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direci�n
 	String email = "ciencuadras4@yopmail.com";
-	String confirmEmail = "ciencuadras4@yopmail.com";
+	String confirmEmail = "constructora_oasis21@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
 	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturaci�n electronica

@@ -345,7 +345,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			if(IVAwithholding.equals("Si")) {
 				click(locator_iva);
 			} 
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			click(locator_fiscalResponsibility);
 			if(fiscalResponsibility.equals("RegimenSimple")) {
 				 click(locator_simpleRegimen); 
@@ -408,7 +408,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 		try {
 			Thread.sleep(15000);
 			click(locator_cookies);
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			if(paymentType.equals("Debito")) {
 			    click(locator_debitCard);
 			    Thread.sleep(5000);
